@@ -63,8 +63,8 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                 data =user.nextInt();
                 switch (data){
                     case 1 -> {
-                        if (balance >= 10){                      
-                            System.out.println("enjoy");
+                        if (balance >= 10){
+                            System.out.println("Enjoy your Load!");
                         }else{
                             System.out.println("Insuficient balance");
                         }                       
@@ -95,14 +95,12 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         else{System.out.println("\"Insuficient balance\"");}
                     }
                     case 4-> {
-                        String aw = "aldrix dane";
                         if (balance  >= 449){System.out.println("enjoy 4");}
                         else{System.out.println("\"Insuficient balance\"");}
                     }             
                 }
                 }         
-            case 4 -> {
-                        String aw = "aldrix dane";               
+            case 4 -> {           
                 do{
                 System.out.println("""
                                    BOOSTERS
@@ -131,7 +129,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         }
                     }
                     
-                    case 2 ->{                     
+                    case 2 ->{
                         do {
                         System.out.println("""
                                            1) SAYA SOCIAL TIME
@@ -989,7 +987,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
             case 6 -> {
                 do {
                 System.out.println("""
-                                   Data Apps + Unli Calls/Text
+                                   Data Apps + Unli Calls/Text/IG
                                    1) TOTAL 600 MB, 2D, P20
                                    2) TOTAL 900 MB, 2D, P25 
                                    3) TOTAL 1.35 GB, 3D, P30 
@@ -1003,7 +1001,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                     case 1 -> {
                         System.out.println("""
                                            Get TOTAL 600 MB: 150 MB ARAW-ARAW for 
-                                           TIkTok, IG, FB, ML (300 MB) + 300 MB + Unli
+                                           IG (300 MB) + 300 MB + Unli
                                            Calls & Texts 2 Days, P20!
                                            1) Subcribe
                                            2) Want TOTAL 1.35 GB & 3D? Add P10!
@@ -1013,14 +1011,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 20){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 30){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1030,7 +1028,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                     case 2 -> {
                         System.out.println("""
                                            Get TOTAL 900 MB: 150 MB ARAW-ARAW for 
-                                           TIkTok, IG, FB, ML (300 MB) + 300 MB + Unli
+                                           IG (300 MB) + 300 MB + Unli
                                            Calls & Texts 2 Days, P20!
                                            1) Subcribe
                                            2) Want TOTAL 1.35 GB & 3D? Add P10! 
@@ -1040,14 +1038,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 25){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 35){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1060,7 +1058,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                     case 3 -> {
                         System.out.println("""
                                            Get TOTAL 1.35 GB: 150 MB ARAW-ARAW for 
-                                           TIkTok, IG, FB, ML (300 MB) + 300 MB + Unli
+                                           IG (300 MB) + 300 MB + Unli
                                            Calls & Texts 3 Days, P30!
                                            1) Subcribe
                                            2) Want TOTAL 1.35 GB & 3D? Add P10!
@@ -1070,14 +1068,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 30){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 40){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1090,7 +1088,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                     case 4 -> {
                         System.out.println("""
                                            Get TOTAL 2.4 GB: 150 MB ARAW-ARAW for 
-                                           TIkTok, IG, FB, ML (300 MB) + 300 MB + Unli
+                                           IG (300 MB) + 300 MB + Unli
                                            Calls & Texts 3 Days, P35!
                                            1) Subcribe
                                            2) Want TOTAL 1.35 GB & 3D? Add P10!
@@ -1100,14 +1098,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 35){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 45){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1120,7 +1118,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                     case 5 -> {
                         System.out.println("""
                                            Get TOTAL 1.2 GB: 150 MB ARAW-ARAW for 
-                                           TIkTok, IG, FB, ML (300 MB) + 300 MB + Unli
+                                           IG (300 MB) + 300 MB + Unli
                                            Calls & Texts 7 Days, P49!
                                            1) Subcribe
                                            2) Want TOTAL 1.35 GB & 3D? Add P10!
@@ -1130,14 +1128,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 49){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 59){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!For IG");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1171,14 +1169,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 49){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For IG");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For IG");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -1191,7 +1189,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                             case 2 -> {
                                 System.out.println("""
                                                    Get Total 8 GB: 100 MB ARAW-ARAW for 
-                                                   Tiktok, IG, FB, ML (700 MB) + 500 MB + Unli
+                                                   IG (700 MB) + 500 MB + Unli
                                                    Calls & Texts, 30 Days, P199
                                                    1) Subscribe
                                                    2) Want TOTAL 2.2 GB? Add P50
@@ -1201,14 +1199,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 199){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For IG");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 244){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For IG");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -1221,7 +1219,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                             case 3 -> {
                                 System.out.println("""
                                                    Get Total 2.2 GB: 100 MB ARAW-ARAW for 
-                                                   Tiktok, IG, FB, ML (700 MB) + 500 MB + Unli
+                                                   IG (700 MB) + 500 MB + Unli
                                                    Calls & Texts, 7 Days, P99
                                                    1) Subscribe
                                                    2) Want TOTAL 2.2 GB? Add P50
@@ -1231,14 +1229,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For IG");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 104){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      }                                                                                                     
@@ -1280,14 +1278,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 20){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 30){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1307,14 +1305,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 25){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 35){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1337,14 +1335,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 30){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 40){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1357,7 +1355,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                     case 6 -> {
                         System.out.println("""
                                            Enjoy MORE DATA + SURFSAYA ARAW-ARAW,
-                                           Unli Calls & Texts:
+                                           Unli Calls & Texts AND TIKTOK:
                                            1) TOTAL 1.2 GB, 7 Days, P49
                                            2) TOTAL 2.2 GB, 7 Days, P99 
                                            3) TOTAL 8 GB, 30 Days, P199
@@ -1368,7 +1366,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                             case 1 -> {
                                 System.out.println("""
                                                    Get Total 1.2 GB: 100 MB ARAW-ARAW for 
-                                                   Tiktok, IG, FB, ML (700 MB) + 500 MB + Unli
+                                                   Tiktok (700 MB) + 500 MB + Unli
                                                    Calls & Texts, 7 Days, P49
                                                    1) Subscribe
                                                    2) Want TOTAL 2.2 GB? Add P50
@@ -1378,14 +1376,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 49){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For TIKTOK");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For TIKTOK");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -1398,7 +1396,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                             case 2 -> {
                                 System.out.println("""
                                                    Get Total 8 GB: 100 MB ARAW-ARAW for 
-                                                   Tiktok, IG, FB, ML (700 MB) + 500 MB + Unli
+                                                   Tiktok (700 MB) + 500 MB + Unli
                                                    Calls & Texts, 30 Days, P199
                                                    1) Subscribe
                                                    2) Want TOTAL 2.2 GB? Add P50
@@ -1408,14 +1406,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 199){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For TIKTOK");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 244){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For TIKTOK");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -1428,7 +1426,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                             case 3 -> {
                                 System.out.println("""
                                                    Get Total 2.2 GB: 100 MB ARAW-ARAW for 
-                                                   Tiktok, IG, FB, ML (700 MB) + 500 MB + Unli
+                                                   Tiktok (700 MB) + 500 MB + Unli
                                                    Calls & Texts, 7 Days, P99
                                                    1) Subscribe
                                                    2) Want TOTAL 2.2 GB? Add P50
@@ -1438,14 +1436,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For TIKTOK");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 104){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For TIKTOK");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      }                                                                                                     
@@ -1487,14 +1485,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 30){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 40){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1514,14 +1512,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 35){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 45){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1544,14 +1542,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 45){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 55){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1585,14 +1583,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 49){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -1615,14 +1613,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 199){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 244){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -1645,14 +1643,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 104){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      }                                                                                                     
@@ -1694,14 +1692,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 30){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!For FB");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 40){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!For FB");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1721,14 +1719,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 35){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!For FB");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 45){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!For FB");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1751,14 +1749,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 45){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!!For FB");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 55){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!!For FB");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1783,7 +1781,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                             case 1 -> {
                                 System.out.println("""
                                                    Get Total 1.2 GB: 100 MB ARAW-ARAW for 
-                                                   Tiktok, IG, FB, ML (700 MB) + 500 MB + Unli
+                                                   FB (700 MB) + 500 MB + Unli
                                                    Calls & Texts, 7 Days, P49
                                                    1) Subscribe
                                                    2) Want TOTAL 2.2 GB? Add P50
@@ -1793,14 +1791,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 49){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For FB");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!For FB");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -1823,14 +1821,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 199){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!! For FB");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 244){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!! For FB");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -1853,14 +1851,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!! For FB");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 104){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!! For FB");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      }                                                                                                     
@@ -1883,14 +1881,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 120){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!! For FB");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 319){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!! For FB");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1929,14 +1927,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 30){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!! WAIS TALAGA");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 40){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!! WAIS TALAGA");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1956,14 +1954,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 35){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!! WAIS TALAGA");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 45){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!! WAIS TALAGA");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -1986,14 +1984,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 45){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your Load!! WAIS TALAGA");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 55){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your Load!! WAIS TALAGA");
                                 }else{
                                     System.out.println("Insuficient Balance");
                                 }
@@ -2027,14 +2025,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 49){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!! WAIS TALAGA");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!! WAIS TALAGA");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -2057,14 +2055,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 199){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 244){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your Load!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
@@ -2087,14 +2085,14 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                                 switch (data){
                                     case 1 ->{
                                                     if (balance >= 99){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your load with Wais!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      } 
                                     }
                                     case 2 ->{
                                                     if (balance >= 104){
-                                                      System.out.println("enjoy 1");
+                                                      System.out.println("Enjoy your load with Wais!!");
                                                      }else{
                                                      System.out.println("Insuficient Balance");
                                                      }                                                                                                     
@@ -2139,12 +2137,12 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         switch (data){
                             case 1 -> {
                                 if (balance >= 0){
-                                    System.out.println("enjoy 1");
+                                    System.out.println("Enjoy your free load!!");
                                 }
                             }
                             case 2 -> {
                                 if (balance >= 0){
-                                    System.out.println("enjoy 2");
+                                    System.out.println("Enjoy your free load!!");
                                 }
                             }
                             case 0 -> {
@@ -2159,4 +2157,3 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
          }while(data == 0);
         }
     }
-
