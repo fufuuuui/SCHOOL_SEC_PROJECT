@@ -63,8 +63,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                 data =user.nextInt();
                 switch (data){
                     case 1 -> {
-                        if (balance >= 10){
-                            String name = "aldrix dane";
+                        if (balance >= 10){                      
                             System.out.println("enjoy");
                         }else{
                             System.out.println("Insuficient balance");
@@ -84,7 +83,6 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                 data = user.nextInt();
                 switch (data){
                     case 1-> {
-                        String aw = "aldrix dane";
                         if (balance  >= 50){System.out.println("enjoy 1");}
                         else{System.out.println("\"Insuficient balance\"");}
                     }
@@ -133,8 +131,7 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                         }
                     }
                     
-                    case 2 ->{
-                        String aws = "aldrix dane";
+                    case 2 ->{                     
                         do {
                         System.out.println("""
                                            1) SAYA SOCIAL TIME
@@ -2160,7 +2157,6 @@ public class public class VIRTUALMOBILE_SERVICE_MENU {
                 }            
             }
          }while(data == 0);
-        String var = "aldrix code";
-        System.out.println(var);
         }
     }
+
