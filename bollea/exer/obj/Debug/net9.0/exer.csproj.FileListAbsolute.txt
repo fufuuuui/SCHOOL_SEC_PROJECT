@@ -1,0 +1,14 @@
+D:\code\bollea\exer\bin\Debug\net9.0\exer.exe
+D:\code\bollea\exer\bin\Debug\net9.0\exer.deps.json
+D:\code\bollea\exer\bin\Debug\net9.0\exer.runtimeconfig.json
+D:\code\bollea\exer\bin\Debug\net9.0\exer.dll
+D:\code\bollea\exer\bin\Debug\net9.0\exer.pdb
+D:\code\bollea\exer\obj\Debug\net9.0\exer.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\bollea\exer\obj\Debug\net9.0\exer.AssemblyInfoInputs.cache
+D:\code\bollea\exer\obj\Debug\net9.0\exer.AssemblyInfo.cs
+D:\code\bollea\exer\obj\Debug\net9.0\exer.csproj.CoreCompileInputs.cache
+D:\code\bollea\exer\obj\Debug\net9.0\exer.dll
+D:\code\bollea\exer\obj\Debug\net9.0\refint\exer.dll
+D:\code\bollea\exer\obj\Debug\net9.0\exer.pdb
+D:\code\bollea\exer\obj\Debug\net9.0\exer.genruntimeconfig.cache
+D:\code\bollea\exer\obj\Debug\net9.0\ref\exer.dll
