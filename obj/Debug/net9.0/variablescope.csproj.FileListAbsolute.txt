@@ -1,0 +1,14 @@
+D:\code\.codeBlock\variablescope\bin\Debug\net9.0\variablescope.exe
+D:\code\.codeBlock\variablescope\bin\Debug\net9.0\variablescope.deps.json
+D:\code\.codeBlock\variablescope\bin\Debug\net9.0\variablescope.runtimeconfig.json
+D:\code\.codeBlock\variablescope\bin\Debug\net9.0\variablescope.dll
+D:\code\.codeBlock\variablescope\bin\Debug\net9.0\variablescope.pdb
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\variablescope.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\variablescope.AssemblyInfoInputs.cache
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\variablescope.AssemblyInfo.cs
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\variablescope.csproj.CoreCompileInputs.cache
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\variablescope.dll
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\refint\variablescope.dll
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\variablescope.pdb
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\variablescope.genruntimeconfig.cache
+D:\code\.codeBlock\variablescope\obj\Debug\net9.0\ref\variablescope.dll
