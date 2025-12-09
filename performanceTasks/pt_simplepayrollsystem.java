@@ -22,6 +22,8 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
         hour();
         ratefor();
     }
+    
+    // Change the "hourWork" field into 0.0 and add hr to the front. this cannot be change by the user
     private void hour()
     {
         NumberFormat format = new DecimalFormat("#0.0' hr'");
@@ -40,6 +42,8 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
             }
         });
     }
+    
+    // Change the "ratefor_hour_day" field into 0.00 and add the Peso sign. this cannot be change by the user
     private void ratefor()
     {
          Locale localePH = new Locale("en", "PH");
@@ -64,6 +68,7 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
         });
     }
     
+    // This is where you calcculate grossPay and show the result into texrArea to show to the User
     private void grossPay()
     {
         Locale localePH = new Locale("en", "PH");
@@ -76,11 +81,16 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
         double sum_grossPay = hour * rate;
         data.append(String.valueOf("Gross Pay: " + decimalFormat.getCurrency() + " " + sum_grossPay + "\n")); 
     }
+    
+    // This is where the Deduction is calculated and show the user what is the deductiion
     private void totalDeduction()
     {
+        data.append("Deduction: SSS (5%), Pag-IBIG (2%), PhilHealth (2.5%) and Other" + "\n");
         double total  = 5 + 2.5 + 2 + 5;
         data.append("Total Deduction: " + String.valueOf(total) + "%" + "\n");
     }
+    
+    // This is where the Netpay is Calculated this also show it to the user
     private void netPay()
     {
         Locale localePH = new Locale("en", "PH");
@@ -240,33 +250,38 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try{
+            
         String studentName = name.getText().trim();
             // Check if the field is emty "isEmpty" will check if the string is empty
+            // This check the "name" field if its empty
             if (studentName.isEmpty())
             {
                 JOptionPane.showMessageDialog(this, "Please enter your name.", "Input Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }    
             
-            Object value = hoursWork.getValue();
-            data.append(value + "\n");
-            if (value == null)
-            {
-                JOptionPane.showMessageDialog(this, "Enter", "Input Error", JOptionPane.ERROR_MESSAGE);
+            //Check if the "hourWork" field have not entered anything if so warn the user
+            Object hours_works = hoursWork.getValue();            
+            double check_hour = ((Number) hours_works).doubleValue();
+
+            if (check_hour == 0.0) {
+                JOptionPane.showMessageDialog(this, "You forgot to put your hours work" + "\n" + "Please Enter it", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
-            }
-            double s = ((Number) value).doubleValue();
+                }
+            
+            /////////////
+            //Check if the "ratefor_hour_day" field have not entered anyting if so warn the user
+            Object rate_for_hour_day = ratefor_hour_day.getValue();            
+            double check_rate = ((Number) rate_for_hour_day).doubleValue();
 
-            data.append(s + "\n");
-
-            if (s == 0.0) {
-                JOptionPane.showMessageDialog(this, "Enter", "Input Error", JOptionPane.ERROR_MESSAGE);
+            if (check_rate == 0.0) {
+                JOptionPane.showMessageDialog(this, "You forgot to put rate" + "\n" + "Please Enter it", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
                 }
             
         data.append("" + name.getText() + "\n");
+        
         grossPay();
-        data.append("Deduction: SSS (5%), Pag-IBIG (2%), PhilHealth (2.5%) and Other" + "\n");
         totalDeduction();
         netPay();
             
