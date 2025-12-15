@@ -52,7 +52,12 @@ public class pt_gradeCalculator extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("STUDENT GRADE CALCULATOR");
 
@@ -220,6 +225,7 @@ public class pt_gradeCalculator extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -289,6 +295,18 @@ public class pt_gradeCalculator extends javax.swing.JFrame {
         jTextField8.setText("");
         jTextField9.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        int choice = JOptionPane.showConfirmDialog(this, "Do you really want to close this window?",
+                "Confirm Exit",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (choice == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

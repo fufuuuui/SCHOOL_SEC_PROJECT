@@ -17,7 +17,9 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
     /**
      * Creates new form pt_simplepayrollsystem
      */
+    
     public pt_simplepayrollsystem() {
+        // initilize compo
         initComponents();
         hour();
         ratefor();
@@ -26,19 +28,19 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
     // Change the "hourWork" field into 0.0 and add hr to the front. this cannot be change by the user
     private void hour()
     {
-        NumberFormat format = new DecimalFormat("#0.0' hr'");
+        NumberFormat format = new DecimalFormat("0.00' hr'");
         NumberFormatter decimalFormatter = new NumberFormatter(format);
         decimalFormatter.setValueClass(Double.class);
-        decimalFormatter.setMinimum(0.0);
+        decimalFormatter.setMinimum(0.00);
         decimalFormatter.setAllowsInvalid(false);
         
         hoursWork.setFormatterFactory(new DefaultFormatterFactory(decimalFormatter));    
-        hoursWork.setValue(0.0);
+        hoursWork.setValue(0.00);
         
         hoursWork.addPropertyChangeListener("value", evt -> {
             if (hoursWork.getValue() == null)
             {
-                hoursWork.setValue(0.0);
+                hoursWork.setValue(0.00);
             }
         });
     }
@@ -74,7 +76,6 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
         Locale localePH = new Locale("en", "PH");
         
         NumberFormat decimalFormat = NumberFormat.getCurrencyInstance(localePH);
-        NumberFormatter decimalFormatter = new NumberFormatter(decimalFormat);
         
         double hour = ((Number) hoursWork.getValue()).doubleValue();
         double rate = ((Number) ratefor_hour_day.getValue()).doubleValue();
@@ -85,25 +86,26 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
     // This is where the Deduction is calculated and show the user what is the deductiion
     private void totalDeduction()
     {
-        data.append("Deduction: SSS (5%), Pag-IBIG (2%), PhilHealth (2.5%) and Other" + "\n");
-        double total  = 5 + 2.5 + 2 + 5;
+        data.append("Deduction: SSS (5%), Pag-IBIG (2%), PhilHealth (2.5%)" + "\n");
+        double total  = 5 + 2.5 + 2;
         data.append("Total Deduction: " + String.valueOf(total) + "%" + "\n");
     }
     
-    // This is where the Netpay is Calculated this also show it to the user
+    // This is where the Netpay is Calculated this also show it to the user in the text Area
     private void netPay()
     {
         Locale localePH = new Locale("en", "PH");
         
         NumberFormat decimalFormat = NumberFormat.getCurrencyInstance(localePH);
-        NumberFormatter decimalFormatter = new NumberFormatter(decimalFormat);
-        
-        double total  = 5 + 2.5 + 2 + 5;
+       
+       // calculation is done here
+        double total  = 5 + 2.5 + 2;
         double hour = ((Number) hoursWork.getValue()).doubleValue();
         double rate = ((Number) ratefor_hour_day.getValue()).doubleValue();
         double sum_grossPay = hour * rate;
         
         double total_netPay = sum_grossPay - (sum_grossPay * total / 100.0);
+        
         data.append("Net Pay: " +  decimalFormat.getCurrency() + String.valueOf(total_netPay) + "\n");
     }
             
@@ -129,10 +131,17 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         data = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Simple Payroll");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Employee Name");
 
         hoursWork.addActionListener(new java.awt.event.ActionListener() {
@@ -147,8 +156,10 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Hours Worked");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Rate for Hour/Day");
 
         jButton1.setText("Clear");
@@ -158,7 +169,7 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Submit");
+        jButton2.setText("Compute");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -203,11 +214,12 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)
-                        .addGap(8, 8, 8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jLabel1)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                        .addGap(8, 8, 8)))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(118, 118, 118))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,6 +249,7 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ratefor_hour_dayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ratefor_hour_dayActionPerformed
@@ -256,7 +269,8 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
             // This check the "name" field if its empty
             if (studentName.isEmpty())
             {
-                JOptionPane.showMessageDialog(this, "Please enter your name.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter your name.",
+                        "Input Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }    
             
@@ -278,7 +292,6 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "You forgot to put rate" + "\n" + "Please Enter it", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
                 }
-            
         data.append("" + name.getText() + "\n");
         
         grossPay();
@@ -303,6 +316,18 @@ public class pt_simplepayrollsystem extends javax.swing.JFrame {
         ratefor_hour_day.setValue(null);
         data.setText(null);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        int choice = JOptionPane.showConfirmDialog(this, "Do you really want to close this window?",
+                "Confirm Exit",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (choice == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

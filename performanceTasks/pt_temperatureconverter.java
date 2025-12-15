@@ -40,7 +40,12 @@ public class pt_temperatureconverter extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -137,6 +142,7 @@ public class pt_temperatureconverter extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -173,13 +179,13 @@ public class pt_temperatureconverter extends javax.swing.JFrame {
                          // Calculate the Fahrenheit converting it to Celsius
                         if (jComboBox2.getSelectedItem().equals("Celsius"))
                         {
-                            C = (float) ((value + 32) * 5/9);
+                            C = (float) ((value - 32) * 5/9);
                             jTextArea1.append(String.valueOf(C+ " C"   + "\n"));                           
                         }
                          // Calculate the Fahrenheit converting it to Kelvin
                         else if (jComboBox2.getSelectedItem().equals("Kelvin"))
                         {
-                            K = (float) ((value + 32) * 5/9 + 273.15);
+                            K = (float) ((value - 32) * 5/9 + 273.15);
                             jTextArea1.append(String.valueOf(K+ " K"   + "\n"));                           
                         }else {JOptionPane.showMessageDialog(this,  "Please Do not select the same Temperature");}
                     }
@@ -197,7 +203,7 @@ public class pt_temperatureconverter extends javax.swing.JFrame {
                          // Calculate the Kelvin converting it to Celsius
                         else  if (jComboBox2.getSelectedItem().equals("Fahrenheit"))
                         {
-                            F = (float) ((value + 32) * 5/9 + + 32);
+                            F = (float) ((value + 273.15) * (9/5));
                             jTextArea1.append(String.valueOf(F+ " F"   + "\n"));                           
                         }else {JOptionPane.showMessageDialog(this,  "Please Do not select the same Temperature");}
                     }
@@ -221,6 +227,18 @@ public class pt_temperatureconverter extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextArea1.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        int choice = JOptionPane.showConfirmDialog(this, "Do you really want to close this window?",
+                "Confirm Exit",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (choice == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        } 
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
