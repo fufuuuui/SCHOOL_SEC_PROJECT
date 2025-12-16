@@ -317,6 +317,12 @@ public class SimpleCalculator extends javax.swing.JFrame {
 
     private void Btn_plusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_plusActionPerformed
         // TODO add your handling code here:
+        if (!txtDisplay.getText().isEmpty())
+        {
+            num1 = Double.parseDouble(txtDisplay.getText());
+            operator = "";
+            num1 = 0;
+        }
     }//GEN-LAST:event_Btn_plusActionPerformed
 
     private void Btn_minusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minusActionPerformed
@@ -339,7 +345,7 @@ public class SimpleCalculator extends javax.swing.JFrame {
         
         if (cmd.matches("[0-9]"))
         {
-            txtDisplay.setText(txtDisplay.getText() + cmd);
+            txtDisplay.setText(txtDisplay.getValue() + cmd);
         }
         else if (cmd.equals("AC"))
         {
