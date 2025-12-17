@@ -16,6 +16,7 @@ import javax.swing.text.NumberFormatter;
 public class SimpleCalculator extends javax.swing.JFrame {
     String operator = "";
     double num1 = 0;
+    double num2 = 0;
     double result = 0;
 
     /**
@@ -44,7 +45,7 @@ public class SimpleCalculator extends javax.swing.JFrame {
         Btn_8 = new javax.swing.JButton();
         Btn_6 = new javax.swing.JButton();
         Btn_0 = new javax.swing.JButton();
-        Btn_Dot = new javax.swing.JButton();
+        btn_Dot = new javax.swing.JButton();
         Btn_9 = new javax.swing.JButton();
         Btn_Divide = new javax.swing.JButton();
         Btn_Times = new javax.swing.JButton();
@@ -126,10 +127,10 @@ public class SimpleCalculator extends javax.swing.JFrame {
             }
         });
 
-        Btn_Dot.setText(".");
-        Btn_Dot.addActionListener(new java.awt.event.ActionListener() {
+        btn_Dot.setText(".");
+        btn_Dot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_DotActionPerformed(evt);
+                btn_DotActionPerformed(evt);
             }
         });
 
@@ -209,7 +210,7 @@ public class SimpleCalculator extends javax.swing.JFrame {
                                         .addComponent(Btn_7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Btn_Dot, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn_Dot, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Btn_8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(Btn_5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,7 +279,7 @@ public class SimpleCalculator extends javax.swing.JFrame {
                             .addComponent(Btn_8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Btn_Dot, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_Dot, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Btn_minus, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
@@ -301,10 +302,10 @@ public class SimpleCalculator extends javax.swing.JFrame {
         txtDisplay.setText(txtDisplay.getText()+ "8");
     }//GEN-LAST:event_Btn_8ActionPerformed
 
-    private void Btn_DotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DotActionPerformed
+    private void btn_DotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DotActionPerformed
         // TODO add your handling code here:
         txtDisplay.setText(txtDisplay.getText()+ ".");
-    }//GEN-LAST:event_Btn_DotActionPerformed
+    }//GEN-LAST:event_btn_DotActionPerformed
 
     private void Btn_DivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_DivideActionPerformed
         // TODO add your handling code here:
@@ -328,17 +329,13 @@ public class SimpleCalculator extends javax.swing.JFrame {
 
     private void Btn_plusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_plusActionPerformed
         // TODO add your handling code here:
-        double num2 = Double.parseDouble(txtDisplay.getText());
         if (!txtDisplay.getText().isEmpty())
         {
             num1 = Double.parseDouble(txtDisplay.getText());
             operator = "+";
             txtDisplay.setText("");
         }
-        else 
-        {
-            return;
-        }
+        
     }//GEN-LAST:event_Btn_plusActionPerformed
 
     private void Btn_minusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minusActionPerformed
@@ -354,41 +351,54 @@ public class SimpleCalculator extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
         txtDisplay.setText(null);
+        
+        String sum1, sum2;
+        
+        sum1 = String.valueOf(num1);
+        sum2 = String.valueOf(num2);
+        
+        sum1 = "";
+        sum2 = "";
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualActionPerformed
         // TODO add your handling code here:
         String cmd = evt.getActionCommand();
-        
+        num2 = Double.parseDouble(txtDisplay.getText());
         if (cmd.matches("[0-9]"))
         {
             txtDisplay.setText(txtDisplay.getText() + cmd);
         }
         
-        else if (cmd.equals("AC"))
-        {
-            txtDisplay.setText(null);
-            result = 0;
-        }
-        
         else if  (cmd.equals("[+\\-*/]"))
-        {
-            num1 = Double.parseDouble(txtDisplay.getText());
+        {  
             operator = cmd;
         }
         else if(cmd.equals("="))
-        {
-            double num2 = Double.parseDouble(txtDisplay.getText());
-            
+        {          
             switch(operator)
             {
-                case "+": result += num1 + num2; break;
-                case "-": result = num1 - num2; break;
-                case "*": result = num1 * num2; break;
-                case "/": result = num1 / num2; break;
+                case "+": 
+                {
+                    result = num1 + num2;
+                    txtDisplay.setText(Double.toString(result));
+                } break;
+                case "-": 
+                {
+                    result = num1 - num2;
+                    txtDisplay.setText(Double.toString(result));
+                } break;
+                case "*": 
+                {
+                    result = num1 * num2;
+                    txtDisplay.setText(Double.toString(result));
+                } break;
+                case "/": 
+                {
+                    result = num1 / num2;
+                    txtDisplay.setText(Double.toString(result));
+                } break;
             }
-            
-            txtDisplay.setText(String.valueOf(result));
         }
     }//GEN-LAST:event_btnEqualActionPerformed
 
@@ -432,7 +442,7 @@ public class SimpleCalculator extends javax.swing.JFrame {
         if (!txtDisplay.getText().isEmpty())
         {
             num1 = Double.parseDouble(txtDisplay.getText());
-            double percent  = num1 / 10;
+            double percent  = num1 / 100;
             txtDisplay.setText(Double.toString(percent));
         }
 
@@ -485,13 +495,13 @@ public class SimpleCalculator extends javax.swing.JFrame {
     private javax.swing.JButton Btn_8;
     private javax.swing.JButton Btn_9;
     private javax.swing.JButton Btn_Divide;
-    private javax.swing.JButton Btn_Dot;
     private javax.swing.JButton Btn_Times;
     private javax.swing.JButton Btn_minus;
     private javax.swing.JButton Btn_percent;
     private javax.swing.JButton Btn_plus;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnEqual;
+    private javax.swing.JButton btn_Dot;
     private javax.swing.JTextField txtDisplay;
     // End of variables declaration//GEN-END:variables
 }

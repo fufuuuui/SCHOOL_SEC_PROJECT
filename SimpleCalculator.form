@@ -50,7 +50,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Btn_Dot" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="btn_Dot" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                                   <Component id="Btn_8" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Component id="Btn_5" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
@@ -141,7 +141,7 @@
                           <Component id="Btn_8" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Btn_Dot" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="btn_Dot" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                               <Component id="Btn_minus" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -233,12 +233,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_0ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Btn_Dot">
+    <Component class="javax.swing.JButton" name="btn_Dot">
       <Properties>
         <Property name="text" type="java.lang.String" value="."/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_DotActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_DotActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_9">
