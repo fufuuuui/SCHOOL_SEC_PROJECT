@@ -4,6 +4,8 @@
  */
 package student_clinic_management_system;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ihub1
@@ -58,7 +60,12 @@ public class Add_Students extends javax.swing.JFrame {
 
         jRadioButton3.setText("jRadioButton3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(35, 52, 45));
 
@@ -72,16 +79,28 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Last Name:");
 
+        FName.setBackground(new java.awt.Color(223, 201, 209));
+        FName.setForeground(new java.awt.Color(0, 0, 0));
+
+        LName.setBackground(new java.awt.Color(223, 201, 209));
+        LName.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Date:");
 
+        day.setBackground(new java.awt.Color(223, 201, 209));
+        day.setForeground(new java.awt.Color(0, 0, 0));
         day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
+        month.setBackground(new java.awt.Color(223, 201, 209));
+        month.setForeground(new java.awt.Color(0, 0, 0));
         month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Age:");
 
+        age.setBackground(new java.awt.Color(223, 201, 209));
+        age.setForeground(new java.awt.Color(0, 0, 0));
         age.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageActionPerformed(evt);
@@ -102,22 +121,57 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Strand:");
 
+        strand.setBackground(new java.awt.Color(223, 201, 209));
+        strand.setForeground(new java.awt.Color(0, 0, 0));
+
+        year.setBackground(new java.awt.Color(223, 201, 209));
+        year.setForeground(new java.awt.Color(0, 0, 0));
         year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2025", "2026", "2027", "2028", "2029", "2030" }));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Complaint:");
 
+        complaint.setBackground(new java.awt.Color(223, 201, 209));
+        complaint.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Nurse:");
+
+        nurse.setBackground(new java.awt.Color(223, 201, 209));
+        nurse.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Treatment:");
 
+        treatment.setBackground(new java.awt.Color(223, 201, 209));
+        treatment.setForeground(new java.awt.Color(0, 0, 0));
+
+        btnAdd.setBackground(new java.awt.Color(223, 201, 209));
+        btnAdd.setForeground(new java.awt.Color(0, 0, 0));
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
+        btnBack.setBackground(new java.awt.Color(223, 201, 209));
+        btnBack.setForeground(new java.awt.Color(0, 0, 0));
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
+        Exit.setBackground(new java.awt.Color(223, 201, 209));
+        Exit.setForeground(new java.awt.Color(0, 0, 0));
         Exit.setText("Exit");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,27 +183,29 @@ public class Add_Students extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel9))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(complaint, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(treatment, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(101, 101, 101)
                                 .addComponent(btnFemale))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(btnAdd))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(nurse, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel10))
-                        .addGap(0, 226, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel11)
+                                        .addComponent(jLabel9))
+                                    .addComponent(jLabel10))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nurse, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(complaint, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(treatment, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnAdd)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(btnBack)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(Exit)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -165,10 +221,7 @@ public class Add_Students extends javax.swing.JFrame {
                                         .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(36, 36, 36)
                                         .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnBack)
-                                        .addGap(76, 76, 76)
-                                        .addComponent(Exit))
+                                    .addComponent(btnMale, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(FName, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
@@ -180,9 +233,8 @@ public class Add_Students extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(LName, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                                            .addComponent(strand)))
-                                    .addComponent(btnMale, javax.swing.GroupLayout.Alignment.LEADING))))
-                        .addGap(14, 14, 14))))
+                                            .addComponent(strand))))))
+                        .addGap(24, 24, 24))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(171, 171, 171)
                 .addComponent(jLabel1)
@@ -223,14 +275,14 @@ public class Add_Students extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(complaint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(nurse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(treatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnBack)
@@ -250,11 +302,46 @@ public class Add_Students extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ageActionPerformed
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+       int choice = JOptionPane.showConfirmDialog(this,
+               "Do you really really want to close this window?",
+               "Confirm Exit", 
+               JOptionPane.YES_NO_OPTION, 
+               JOptionPane.QUESTION_MESSAGE);
+       if (choice==JOptionPane.YES_OPTION){
+           System.exit(0);
+       }
+    }//GEN-LAST:event_ExitActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        Main newWindow = new Main();
+        newWindow.setLocationRelativeTo(this);
+        newWindow.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+         int choice = JOptionPane.showConfirmDialog(this,
+               "Do you really really want to close this window?",
+               "Confirm Exit", 
+               JOptionPane.YES_NO_OPTION, 
+               JOptionPane.QUESTION_MESSAGE);
+       if (choice==JOptionPane.YES_OPTION){
+           System.exit(0);
+       }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

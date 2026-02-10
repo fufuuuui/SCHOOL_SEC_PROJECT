@@ -1,5 +1,7 @@
 package student_clinic_management_system;
 
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -34,33 +36,62 @@ public class Main extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(64, 83, 74));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Main Menu");
 
+        btnAddStudent.setBackground(new java.awt.Color(223, 201, 209));
         btnAddStudent.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        btnAddStudent.setForeground(new java.awt.Color(0, 0, 0));
         btnAddStudent.setText("Add Student");
+        btnAddStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddStudentActionPerformed(evt);
+            }
+        });
 
+        btnPatientList.setBackground(new java.awt.Color(223, 201, 209));
         btnPatientList.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        btnPatientList.setText("Patient List");
+        btnPatientList.setForeground(new java.awt.Color(0, 0, 0));
+        btnPatientList.setText("Admin Sign Up");
+        btnPatientList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientListActionPerformed(evt);
+            }
+        });
 
+        btnExit.setBackground(new java.awt.Color(223, 201, 209));
         btnExit.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(0, 0, 0));
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPatientList, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddStudent)
-                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPatientList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(12, 12, 12)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,11 +100,11 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addComponent(btnAddStudent)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPatientList)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnExit)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,6 +121,44 @@ public class Main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPatientListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientListActionPerformed
+        SignUp newWindow = new SignUp();
+        newWindow.setLocationRelativeTo(this);
+        newWindow.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnPatientListActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        int choice = JOptionPane.showConfirmDialog(this,
+               "Do you really really want to close this window?",
+               "Confirm Exit", 
+               JOptionPane.YES_NO_OPTION, 
+               JOptionPane.QUESTION_MESSAGE);
+       if (choice==JOptionPane.YES_OPTION){
+           System.exit(0);
+       }
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
+        Add_Students newWindow = new Add_Students();
+        newWindow.setLocationRelativeTo(this);
+        newWindow.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnAddStudentActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int choice = JOptionPane.showConfirmDialog(this,
+               "Do you really really want to close this window?",
+               "Confirm Exit", 
+               JOptionPane.YES_NO_OPTION, 
+               JOptionPane.QUESTION_MESSAGE);
+       if (choice==JOptionPane.YES_OPTION){
+           System.exit(0);
+       }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
