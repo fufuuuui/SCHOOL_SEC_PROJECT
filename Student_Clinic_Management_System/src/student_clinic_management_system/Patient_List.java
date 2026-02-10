@@ -5,7 +5,10 @@
 package student_clinic_management_system;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +21,7 @@ public class Patient_List extends javax.swing.JFrame {
      */
     public Patient_List() {
         initComponents();
+        reflesh();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -42,7 +46,6 @@ public class Patient_List extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(55, 68, 38));
 
         patient_table.setBackground(new java.awt.Color(223, 201, 209));
-        patient_table.setForeground(new java.awt.Color(0, 0, 0));
         patient_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -57,7 +60,6 @@ public class Patient_List extends javax.swing.JFrame {
         jScrollPane1.setViewportView(patient_table);
 
         btnEdit.setBackground(new java.awt.Color(223, 201, 209));
-        btnEdit.setForeground(new java.awt.Color(0, 0, 0));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +68,6 @@ public class Patient_List extends javax.swing.JFrame {
         });
 
         btnDelete.setBackground(new java.awt.Color(223, 201, 209));
-        btnDelete.setForeground(new java.awt.Color(0, 0, 0));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +76,6 @@ public class Patient_List extends javax.swing.JFrame {
         });
 
         btnBack.setBackground(new java.awt.Color(223, 201, 209));
-        btnBack.setForeground(new java.awt.Color(0, 0, 0));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +84,6 @@ public class Patient_List extends javax.swing.JFrame {
         });
 
         btnExit.setBackground(new java.awt.Color(223, 201, 209));
-        btnExit.setForeground(new java.awt.Color(0, 0, 0));
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +150,36 @@ public class Patient_List extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void reflesh(){
+        String sql;
+        String SUrl, SUser, SPass;
+        SUrl = "jdbc:MySQL://localhost:3306/user_sign_up";
+        SUser = "root";
+        SPass = "Passw0rd";
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(SUrl, SUser, SPass);
+            Statement st = con.createStatement();
+            sql = "select * from patient";
+            var rs = st.executeQuery(sql);
+                   
+                DefaultTableModel tblModel = (DefaultTableModel)patient_table.getModel();
+                         try{
+                             
+                         }catch (Exception e){
+                             for (int i = 0; i < patient_table.getRowCount(); i++)
+                             {
+                                 String date = patient_table.getValueAt(i, 1).toString();
+                                 
+                                 sql = "INSERT INTO patient(date, first_Name, last_Name)"+
+                                  "VALUES('"+date+"')";
+                                  st.addBatch(sql);
+                             }
+                         }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         int choice = JOptionPane.showConfirmDialog(this,
             "Do you really really want to close this window?",
