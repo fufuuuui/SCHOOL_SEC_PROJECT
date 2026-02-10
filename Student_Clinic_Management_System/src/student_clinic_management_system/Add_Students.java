@@ -4,7 +4,11 @@
  */
 package student_clinic_management_system;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -80,27 +84,32 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel3.setText("Last Name:");
 
         FName.setBackground(new java.awt.Color(223, 201, 209));
-        FName.setForeground(new java.awt.Color(0, 0, 0));
+        FName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FNameActionPerformed(evt);
+            }
+        });
 
         LName.setBackground(new java.awt.Color(223, 201, 209));
-        LName.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Date:");
 
         day.setBackground(new java.awt.Color(223, 201, 209));
-        day.setForeground(new java.awt.Color(0, 0, 0));
         day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        day.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dayActionPerformed(evt);
+            }
+        });
 
         month.setBackground(new java.awt.Color(223, 201, 209));
-        month.setForeground(new java.awt.Color(0, 0, 0));
         month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Age:");
 
         age.setBackground(new java.awt.Color(223, 201, 209));
-        age.setForeground(new java.awt.Color(0, 0, 0));
         age.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageActionPerformed(evt);
@@ -122,32 +131,26 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel8.setText("Strand:");
 
         strand.setBackground(new java.awt.Color(223, 201, 209));
-        strand.setForeground(new java.awt.Color(0, 0, 0));
 
         year.setBackground(new java.awt.Color(223, 201, 209));
-        year.setForeground(new java.awt.Color(0, 0, 0));
         year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2025", "2026", "2027", "2028", "2029", "2030" }));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Complaint:");
 
         complaint.setBackground(new java.awt.Color(223, 201, 209));
-        complaint.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Nurse:");
 
         nurse.setBackground(new java.awt.Color(223, 201, 209));
-        nurse.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Treatment:");
 
         treatment.setBackground(new java.awt.Color(223, 201, 209));
-        treatment.setForeground(new java.awt.Color(0, 0, 0));
 
         btnAdd.setBackground(new java.awt.Color(223, 201, 209));
-        btnAdd.setForeground(new java.awt.Color(0, 0, 0));
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +159,6 @@ public class Add_Students extends javax.swing.JFrame {
         });
 
         btnBack.setBackground(new java.awt.Color(223, 201, 209));
-        btnBack.setForeground(new java.awt.Color(0, 0, 0));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +167,6 @@ public class Add_Students extends javax.swing.JFrame {
         });
 
         Exit.setBackground(new java.awt.Color(223, 201, 209));
-        Exit.setForeground(new java.awt.Color(0, 0, 0));
         Exit.setText("Exit");
         Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,6 +331,28 @@ public class Add_Students extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        String date, student_ID, query, fname = null, lname = null, 
+                age, gender, strand, complaint, nurse, treatment;
+        String SUrl, SUser, SPass;
+        SUrl = "jdbc:MySQL://localhost:3306/clinic";
+        SUser = "root";
+        SPass = "Passw0rd";
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(SUrl, SUser, SPass);
+            Statement st = con.createStatement();
+            date = day.getSelectedItem().toString();
+            date += month.getSelectedItem().toString();
+            date += year.getSelectedItem().toString();
+            fname = FName.getText();
+            lname = LName.getText();
+            query = "INSERT INTO patient(date, first_Name, last_Name)"+
+                    "VALUES('"+date+"', '"+fname+"' , '"+lname+"')";
+            st.execute(query);
+            showMessageDialog(null, "New account has been created successfully!");
+        }catch(Exception e){
+            System.out.println("Error!" + e.getMessage()); 
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -342,6 +365,15 @@ public class Add_Students extends javax.swing.JFrame {
            System.exit(0);
        }
     }//GEN-LAST:event_formWindowClosing
+
+    private void dayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_dayActionPerformed
+
+    private void FNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FNameActionPerformed
 
     /**
      * @param args the command line arguments

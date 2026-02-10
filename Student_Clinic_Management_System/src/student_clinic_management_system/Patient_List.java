@@ -4,6 +4,7 @@
  */
 package student_clinic_management_system;
 
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 /**
