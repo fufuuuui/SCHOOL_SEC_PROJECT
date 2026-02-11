@@ -4,11 +4,7 @@
  */
 package student_clinic_management_system;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,13 +13,13 @@ import javax.swing.table.DefaultTableModel;
  * @author ihub1
  */
 public class Patient_List extends javax.swing.JFrame {
-
+DBController controller = new DBController();
     /**
      * Creates new form Patient_List
      */
     public Patient_List() {
         initComponents();
-        reflesh();
+        refreshTable();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -149,36 +145,7 @@ public class Patient_List extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void reflesh(){
-        String sql;
-        String SUrl, SUser, SPass;
-        SUrl = "jdbc:MySQL://localhost:3306/student_clinic_management_system";
-        SUser = "root";
-        SPass = "Passw0rd";
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(SUrl, SUser, SPass);
-            Statement st = con.createStatement();
-            sql = "select * from patients";
-            var rs = st.executeQuery(sql);
-                   
-                DefaultTableModel tblModel = (DefaultTableModel)patient_table.getModel();
-                         try{
-                             
-                         }catch (Exception e){
-                             for (int i = 0; i < patient_table.getRowCount(); i++)
-                             {
-                                 String date = patient_table.getValueAt(i, 1).toString();
-                                 
-                                 sql = "INSERT INTO patients(date, first_Name, last_Name)"+
-                                  "VALUES('"+date+"')";
-                                  st.addBatch(sql);
-                             }
-                         }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
+  
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         int choice = JOptionPane.showConfirmDialog(this,
             "Do you really really want to close this window?",
@@ -216,30 +183,34 @@ public class Patient_List extends javax.swing.JFrame {
            System.exit(0);
        }
     }//GEN-LAST:event_formWindowClosing
-public void refreshTable(){
-        javax.swing.table.DefaultTableModel model =
-                (javax.swing.table.DefaultTableModel) 
-                patient_table.getModel();
-                model.setRowCount(0); 
-     try(ResultSet rs = controller.getStudentData()) {
-     while (rs.next()){
-         Object[] row = {
-             rs.getInt("student_id"),
-             rs.getString("name"),
-             rs.getString("gender"),
-             rs.getString("strand"),
-             rs.getString("grade_level"),
+
+    public void refreshTable(){
+         DefaultTableModel model = (DefaultTableModel) patient_table.getModel();
+         model.setRowCount(0);
+         
+         try(ResultSet rs = controller.getStudentData()){
+             while (rs.next()){
+                 Object [] row = {
+                     
+                     rs.getString ("Date"),
+                     rs.getString ("student_ID"),
+                     rs.getString ("First_Name"),
+                     rs.getString ("Last_Name"),
+                     rs.getInt ("Age"),
+                     rs.getString ("Gender"),
+                     rs.getString ("Strand"),
+                     rs.getString ("Complaint"),
+                     rs.getString ("Nurse_name"),
+                     rs.getString ("Treatment")
+                
+                 };
+                 model.addRow(row);
+             }
+         } catch(SQLException e){
+             System.out.println("Table Refresh Error: "+e.getMessage());
+         }
              
-         };
-         model.addRow(row);
-        } 
-     } catch (SQLException e){
-            System.out.println("Table Refresh Error: "+ e.getMessage());
-    }
-} 
-    /**
-     * @param args the command line arguments
-     */
+     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

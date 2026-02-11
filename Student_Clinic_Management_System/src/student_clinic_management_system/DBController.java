@@ -10,12 +10,35 @@ import javax.swing.*;
  * @author ihub1
  */
 public class DBController {
-    public void addPatient(String Date, String first_name, String last_name, int age, String gender, String strand, String complaint, String Nurse_name, String Treatment){
-        String sql = "INSERT INTO patients (Date, First_Name, Last_Name, Age, Gender, Strand, Complaint, Nurse_name, Treatment) VALUES (?, ?, ?, ?,?,?,?,?,?,?)";
-        executeSQL(sql, "Added", Date, first_name, last_name, age, gender, strand, complaint, Nurse_name, Treatment, null);
+    //DBConnection connection = new DBConnection();
+    Connection connection = DBConnection.getConnection();
+public void addPatient(String date, String first_name, String last_name, int age,
+                       String gender, String strand, String complaint,
+                       String nurse_name, String treatment) {
+
+    String sql = "INSERT INTO patient (Date, First_Name, Last_Name, Age, Gender, Strand, Complaint, Nurse_name, Treatment) " +
+                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    try (PreparedStatement pst = connection.prepareStatement(sql)) {
+
+        pst.setString(1, date);
+        pst.setString(2, first_name);
+        pst.setString(3, last_name);
+        pst.setInt(4, age);
+        pst.setString(5, gender);
+        pst.setString(6, strand);
+        pst.setString(7, complaint);
+        pst.setString(8, nurse_name);
+        pst.setString(9, treatment);
+
+        pst.executeUpdate();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
     public void updatePatient(int id, String Date, String first_name, String last_name, int age, String gender, String strand, String complaint, String Nurse_name, String Treatment) {
-        String sql = "UPDATE patients SET date=?, first_name=?, last_name=?, age=?, gender=?, strand=?, complaint=?, Nurse_name=?, Treatment=?,  WHERE Student_ID=?";
+        String sql = "UPDATE patient SET date=?, first_name=?, last_name=?, age=?, gender=?, strand=?, complaint=?, Nurse_name=?, Treatment=?,  WHERE Student_ID=?";
         executeSQL(sql, "Update", Date, first_name, last_name, age, gender, strand, complaint, Nurse_name, Treatment, id);
     }
     public void deletePatient(int id){
@@ -31,7 +54,7 @@ public class DBController {
     }
     public ResultSet getStudentData() throws SQLException{
         Connection con = DBConnection.getConnection();
-        String sql = "SELECT * FROM patients";
+        String sql = "SELECT * FROM patient";
         Statement stmt = con.createStatement();
         return stmt.executeQuery(sql);
 }  

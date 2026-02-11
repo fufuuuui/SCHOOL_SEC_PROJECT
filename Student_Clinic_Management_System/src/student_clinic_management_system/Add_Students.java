@@ -4,9 +4,8 @@
  */
 package student_clinic_management_system;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -15,7 +14,8 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author ihub1
  */
 public class Add_Students extends javax.swing.JFrame {
-
+Patient_List list = new Patient_List();
+DBController controller = new DBController();
     /**
      * Creates new form Add_Students
      */
@@ -45,15 +45,15 @@ public class Add_Students extends javax.swing.JFrame {
         day = new javax.swing.JComboBox<>();
         month = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        age = new javax.swing.JTextField();
+        age_person = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         btnMale = new javax.swing.JRadioButton();
         btnFemale = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        strand = new javax.swing.JTextField();
+        strands = new javax.swing.JTextField();
         year = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        complaint = new javax.swing.JTextField();
+        complaints = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         nurse = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -109,10 +109,10 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Age:");
 
-        age.setBackground(new java.awt.Color(223, 201, 209));
-        age.addActionListener(new java.awt.event.ActionListener() {
+        age_person.setBackground(new java.awt.Color(223, 201, 209));
+        age_person.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ageActionPerformed(evt);
+                age_personActionPerformed(evt);
             }
         });
 
@@ -130,7 +130,7 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Strand:");
 
-        strand.setBackground(new java.awt.Color(223, 201, 209));
+        strands.setBackground(new java.awt.Color(223, 201, 209));
 
         year.setBackground(new java.awt.Color(223, 201, 209));
         year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2025", "2026", "2027", "2028", "2029", "2030" }));
@@ -138,7 +138,7 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Complaint:");
 
-        complaint.setBackground(new java.awt.Color(223, 201, 209));
+        complaints.setBackground(new java.awt.Color(223, 201, 209));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Nurse:");
@@ -198,7 +198,7 @@ public class Add_Students extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(nurse, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(complaint, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(complaints, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(treatment, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(btnAdd)
@@ -226,7 +226,7 @@ public class Add_Students extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(FName, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                            .addComponent(age))
+                                            .addComponent(age_person))
                                         .addGap(9, 9, 9)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3)
@@ -234,7 +234,7 @@ public class Add_Students extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(LName, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                                            .addComponent(strand))))))
+                                            .addComponent(strands))))))
                         .addGap(24, 24, 24))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(171, 171, 171)
@@ -263,9 +263,9 @@ public class Add_Students extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(age_person, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(strand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(strands, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -274,7 +274,7 @@ public class Add_Students extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(complaint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(complaints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -306,9 +306,9 @@ public class Add_Students extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
+    private void age_personActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_age_personActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ageActionPerformed
+    }//GEN-LAST:event_age_personActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
        int choice = JOptionPane.showConfirmDialog(this,
@@ -331,34 +331,25 @@ public class Add_Students extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        String date, student_ID, query, fname = null, lname = null, 
-                 genders, strands, complaints, nurses, treatments, ages;
-        String SUrl, SUser, SPass;
-        SUrl = "jdbc:MySQL://localhost:3306/student_clinic_management_system";
-        SUser = "root";
-        SPass = "Passw0rd";
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(SUrl, SUser, SPass);
-            Statement st = con.createStatement();
-            date = day.getSelectedItem().toString();
-            date += month.getSelectedItem().toString();
-            date += year.getSelectedItem().toString();
-            fname = FName.getText();
-            lname = LName.getText();
-            ages = age.getText().toString();
-            genders = btnMale.isSelected() ? "Male" : "Female";
-            strands = strand.getText();
-            complaints = complaint.getText();
-            nurses = nurse.getText();
-            treatments = treatment.getText();
+        String Date, query, first_name, last_name, 
+                 gender, strand, complaint, Nurse_name, Treatment;
             
-            query = "INSERT INTO patients(Date, First_Name, Last_Name, Age, Gender, Strand, Complaint, Nurse_Name, Treatment) VALUES('"+date+"', '"+fname+"' , '"+lname+"', '"+ages+"', '"+genders+"', '"+strands+"','"+complaints+"', '"+nurses+"','"+treatments+"')";
-            st.execute(query);
+            Date = day.getSelectedItem().toString();
+            Date += month.getSelectedItem().toString();
+            Date += year.getSelectedItem().toString();
+            first_name = FName.getText();
+            last_name = LName.getText();
+            int age =  Integer.parseInt(age_person.getText());
+            gender = btnMale.isSelected() ? "Male" : "Female";
+            strand = strands.getText();
+            complaint = complaints.getText();
+            Nurse_name = nurse.getText();
+            Treatment = treatment.getText();
+            
+            controller.addPatient(Date, first_name, last_name, age, gender, strand, complaint, Nurse_name, Treatment);
+            
             showMessageDialog(null, "Successfuly added patient");
-        }catch(Exception e){
-            System.out.println("Error!" + e.getMessage()); 
-        }
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -381,9 +372,7 @@ public class Add_Students extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_FNameActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -420,13 +409,13 @@ public class Add_Students extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JTextField FName;
     private javax.swing.JTextField LName;
-    private javax.swing.JTextField age;
+    private javax.swing.JTextField age_person;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
     private javax.swing.JRadioButton btnFemale;
     private javax.swing.JRadioButton btnMale;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField complaint;
+    private javax.swing.JTextField complaints;
     private javax.swing.JComboBox<String> day;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -443,7 +432,7 @@ public class Add_Students extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JComboBox<String> month;
     private javax.swing.JTextField nurse;
-    private javax.swing.JTextField strand;
+    private javax.swing.JTextField strands;
     private javax.swing.JTextField treatment;
     private javax.swing.JComboBox<String> year;
     // End of variables declaration//GEN-END:variables

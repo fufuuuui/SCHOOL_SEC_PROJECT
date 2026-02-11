@@ -78,7 +78,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="nurse" min="-2" pref="164" max="-2" attributes="0"/>
-                                      <Component id="complaint" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                                      <Component id="complaints" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                       <Component id="treatment" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
@@ -112,7 +112,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="FName" pref="120" max="32767" attributes="0"/>
-                                              <Component id="age" max="32767" attributes="0"/>
+                                              <Component id="age_person" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -122,7 +122,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="LName" pref="164" max="32767" attributes="0"/>
-                                              <Component id="strand" max="32767" attributes="0"/>
+                                              <Component id="strands" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -163,9 +163,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="age" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="age_person" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="strand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="strands" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -176,7 +176,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="complaint" min="-2" max="-2" attributes="0"/>
+                      <Component id="complaints" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -338,14 +338,14 @@
             <Property name="text" type="java.lang.String" value="Age:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="age">
+        <Component class="javax.swing.JTextField" name="age_person">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d1" green="c9" red="df" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ageActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="age_personActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -386,7 +386,7 @@
             <Property name="text" type="java.lang.String" value="Strand:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="strand">
+        <Component class="javax.swing.JTextField" name="strands">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d1" green="c9" red="df" type="rgb"/>
@@ -422,7 +422,7 @@
             <Property name="text" type="java.lang.String" value="Complaint:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="complaint">
+        <Component class="javax.swing.JTextField" name="complaints">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d1" green="c9" red="df" type="rgb"/>
