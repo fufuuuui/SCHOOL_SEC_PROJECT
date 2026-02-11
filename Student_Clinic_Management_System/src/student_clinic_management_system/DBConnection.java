@@ -18,4 +18,19 @@ import java.util.Properties;
  */
 public class DBConnection {
 private static Properties props = new Properties();
+public static Connection getConnection(){
+    Connection con;
+    try{
+         Class.forName("com.mysql.cj.jdbc.Driver");
+         con = DriverManager.getConnection(
+                 "jdbc:mysql://localhost:3306/schooldb","root", "Passw0rd");
+         
+         
+         System.out.print("Connection Successful!");
+         return con;
+                 }catch(Exception e){ 
+                System.out.print("Connection Error"+ e.getMessage()); 
+    }
+    return null;
+    }
 }

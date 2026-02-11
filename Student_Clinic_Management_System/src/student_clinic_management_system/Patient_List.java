@@ -6,6 +6,8 @@ package student_clinic_management_system;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -48,10 +50,7 @@ public class Patient_List extends javax.swing.JFrame {
         patient_table.setBackground(new java.awt.Color(223, 201, 209));
         patient_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Date", "Student ID", "First Name", "Last Name", "Age", "Gender", "Strand", "Complaint", "Nurse", "Treatment"
@@ -153,14 +152,14 @@ public class Patient_List extends javax.swing.JFrame {
     public void reflesh(){
         String sql;
         String SUrl, SUser, SPass;
-        SUrl = "jdbc:MySQL://localhost:3306/user_sign_up";
+        SUrl = "jdbc:MySQL://localhost:3306/student_clinic_management_system";
         SUser = "root";
         SPass = "Passw0rd";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(SUrl, SUser, SPass);
             Statement st = con.createStatement();
-            sql = "select * from patient";
+            sql = "select * from patients";
             var rs = st.executeQuery(sql);
                    
                 DefaultTableModel tblModel = (DefaultTableModel)patient_table.getModel();
@@ -171,7 +170,7 @@ public class Patient_List extends javax.swing.JFrame {
                              {
                                  String date = patient_table.getValueAt(i, 1).toString();
                                  
-                                 sql = "INSERT INTO patient(date, first_Name, last_Name)"+
+                                 sql = "INSERT INTO patients(date, first_Name, last_Name)"+
                                   "VALUES('"+date+"')";
                                   st.addBatch(sql);
                              }
@@ -217,7 +216,27 @@ public class Patient_List extends javax.swing.JFrame {
            System.exit(0);
        }
     }//GEN-LAST:event_formWindowClosing
-
+public void refreshTable(){
+        javax.swing.table.DefaultTableModel model =
+                (javax.swing.table.DefaultTableModel) 
+                patient_table.getModel();
+                model.setRowCount(0); 
+     try(ResultSet rs = controller.getStudentData()) {
+     while (rs.next()){
+         Object[] row = {
+             rs.getInt("student_id"),
+             rs.getString("name"),
+             rs.getString("gender"),
+             rs.getString("strand"),
+             rs.getString("grade_level"),
+             
+         };
+         model.addRow(row);
+        } 
+     } catch (SQLException e){
+            System.out.println("Table Refresh Error: "+ e.getMessage());
+    }
+} 
     /**
      * @param args the command line arguments
      */

@@ -332,9 +332,9 @@ public class Add_Students extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         String date, student_ID, query, fname = null, lname = null, 
-                age, gender, strand, complaint, nurse, treatment;
+                 genders, strands, complaints, nurses, treatments, ages;
         String SUrl, SUser, SPass;
-        SUrl = "jdbc:MySQL://localhost:3306/clinic";
+        SUrl = "jdbc:MySQL://localhost:3306/student_clinic_management_system";
         SUser = "root";
         SPass = "Passw0rd";
         try{
@@ -346,10 +346,16 @@ public class Add_Students extends javax.swing.JFrame {
             date += year.getSelectedItem().toString();
             fname = FName.getText();
             lname = LName.getText();
-            query = "INSERT INTO patient(date, first_Name, last_Name)"+
-                    "VALUES('"+date+"', '"+fname+"' , '"+lname+"')";
+            ages = age.getText().toString();
+            genders = btnMale.isSelected() ? "Male" : "Female";
+            strands = strand.getText();
+            complaints = complaint.getText();
+            nurses = nurse.getText();
+            treatments = treatment.getText();
+            
+            query = "INSERT INTO patients(Date, First_Name, Last_Name, Age, Gender, Strand, Complaint, Nurse_Name, Treatment) VALUES('"+date+"', '"+fname+"' , '"+lname+"', '"+ages+"', '"+genders+"', '"+strands+"','"+complaints+"', '"+nurses+"','"+treatments+"')";
             st.execute(query);
-            showMessageDialog(null, "New account has been created successfully!");
+            showMessageDialog(null, "Successfuly added patient");
         }catch(Exception e){
             System.out.println("Error!" + e.getMessage()); 
         }
