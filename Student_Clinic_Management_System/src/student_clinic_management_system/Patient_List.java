@@ -7,13 +7,16 @@ package student_clinic_management_system;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author ihub1
  */
 public class Patient_List extends javax.swing.JFrame {
-DBController controller = new DBController();
+    Add_Students ns = new Add_Students();
+    DBController controller = new DBController();
+    int selectedStudentID = -1;
     /**
      * Creates new form Patient_List
      */
@@ -52,6 +55,11 @@ DBController controller = new DBController();
                 "Date", "Student ID", "First Name", "Last Name", "Age", "Gender", "Strand", "Complaint", "Nurse", "Treatment"
             }
         ));
+        patient_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                patient_tableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(patient_table);
 
         btnEdit.setBackground(new java.awt.Color(223, 201, 209));
@@ -167,10 +175,32 @@ DBController controller = new DBController();
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        if (selectedStudentID != -1){
+            int confirm = JOptionPane.showConfirmDialog(this,
+                    "Are you sure you want to delete this student?",
+                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
+            
+            if (confirm == JOptionPane.YES_OPTION){
+                controller.deletePatient(selectedStudentID);
+                
+                refreshTable();
+                selectedStudentID = -1;
+                
+            }
+        }else {
+            JOptionPane.showMessageDialog(this, "Please select a student from the table first.");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
+            if (selectedStudentID != -1) {
+           
+           refreshTable();
+    }else {
+           JOptionPane.showMessageDialog(this, "Please select a student from the table.");
+           
+       }
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -183,6 +213,21 @@ DBController controller = new DBController();
            System.exit(0);
        }
     }//GEN-LAST:event_formWindowClosing
+
+    private void patient_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patient_tableMouseClicked
+        // TODO add your handling code here:
+        int i = patient_table.getSelectedRow();
+        TableModel model = patient_table.getModel();
+        
+        selectedStudentID = Integer.parseInt(model.getValueAt(1, 1).toString());
+        //FName.setText(model.getValueAt(i, 1).toString());
+        //String gender = model.getValueAt(i, 2).toString();
+        //if(gender.equalsIgnoreCase("Male"))malegender.setSelected(true);
+        //else femalegender.setSelected(true);
+        //studentstrand.setText(model.getValueAt(1, 3).toString());
+        //.setSelectedItem(model.getValueAt(i, 4).toString());
+        
+    }//GEN-LAST:event_patient_tableMouseClicked
 
     public void refreshTable(){
          DefaultTableModel model = (DefaultTableModel) patient_table.getModel();

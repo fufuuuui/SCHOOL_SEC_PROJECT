@@ -16,6 +16,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class Add_Students extends javax.swing.JFrame {
 Patient_List list = new Patient_List();
 DBController controller = new DBController();
+int selectedStudentID = -1;
     /**
      * Creates new form Add_Students
      */
@@ -61,6 +62,7 @@ DBController controller = new DBController();
         btnAdd = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         Exit = new javax.swing.JButton();
+        btnAdd1 = new javax.swing.JButton();
 
         jRadioButton3.setText("jRadioButton3");
 
@@ -174,6 +176,14 @@ DBController controller = new DBController();
             }
         });
 
+        btnAdd1.setBackground(new java.awt.Color(223, 201, 209));
+        btnAdd1.setText("Clear");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -205,7 +215,8 @@ DBController controller = new DBController();
                                         .addGap(33, 33, 33)
                                         .addComponent(btnBack)
                                         .addGap(32, 32, 32)
-                                        .addComponent(Exit)))))
+                                        .addComponent(Exit))
+                                    .addComponent(btnAdd1))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -283,11 +294,13 @@ DBController controller = new DBController();
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(treatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnBack)
                     .addComponent(Exit))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAdd1)
                 .addGap(16, 16, 16))
         );
 
@@ -372,6 +385,44 @@ DBController controller = new DBController();
         // TODO add your handling code here:
     }//GEN-LAST:event_FNameActionPerformed
 
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        // TODO add your handling code here:
+        FName.setText("");
+        LName.setText("");
+        strands.setText("");
+        age_person.setText(null);
+        complaints.setText(null);
+        nurse.setText(null);
+        treatment.setText(null);
+        buttonGroup1.clearSelection();
+        day.setSelectedIndex(0);
+        month.setSelectedIndex(0);
+        year.setSelectedIndex(0);
+        selectedStudentID = -1;
+        FName.requestFocus();
+
+    }//GEN-LAST:event_btnAdd1ActionPerformed
+
+    public void edit()
+    {
+        String Date, query, first_name, last_name, 
+               gender, strand, complaint, Nurse_name, Treatment;
+        
+            Date = day.getSelectedItem().toString();
+            Date += month.getSelectedItem().toString();
+            Date += year.getSelectedItem().toString();
+            first_name = FName.getText();
+            last_name = LName.getText();
+            int age =  Integer.parseInt(age_person.getText());
+            gender = btnMale.isSelected() ? "Male" : "Female";
+            strand = strands.getText();
+            complaint = complaints.getText();
+            Nurse_name = nurse.getText();
+            Treatment = treatment.getText();
+            
+            controller.updatePatient(Date,selectedStudentID, first_name, last_name, age, gender, strand, complaint, Nurse_name, Treatment  );
+        
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -411,6 +462,7 @@ DBController controller = new DBController();
     private javax.swing.JTextField LName;
     private javax.swing.JTextField age_person;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnBack;
     private javax.swing.JRadioButton btnFemale;
     private javax.swing.JRadioButton btnMale;

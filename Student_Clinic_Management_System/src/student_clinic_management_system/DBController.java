@@ -16,7 +16,7 @@ public void addPatient(String date, String first_name, String last_name, int age
                        String gender, String strand, String complaint,
                        String nurse_name, String treatment) {
 
-    String sql = "INSERT INTO patient (Date, First_Name, Last_Name, Age, Gender, Strand, Complaint, Nurse_name, Treatment) " +
+    String sql = "INSERT INTO patients (Date, First_Name, Last_Name, Age, Gender, Strand, Complaint, Nurse_name, Treatment) " +
                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     try (PreparedStatement pst = connection.prepareStatement(sql)) {
@@ -37,12 +37,12 @@ public void addPatient(String date, String first_name, String last_name, int age
         e.printStackTrace();
     }
 }
-    public void updatePatient(int id, String Date, String first_name, String last_name, int age, String gender, String strand, String complaint, String Nurse_name, String Treatment) {
+    public void updatePatient(String Date, int id, String first_name, String last_name, int age, String gender, String strand, String complaint, String Nurse_name, String Treatment) {
         String sql = "UPDATE patient SET date=?, first_name=?, last_name=?, age=?, gender=?, strand=?, complaint=?, Nurse_name=?, Treatment=?,  WHERE Student_ID=?";
         executeSQL(sql, "Update", Date, first_name, last_name, age, gender, strand, complaint, Nurse_name, Treatment, id);
     }
     public void deletePatient(int id){
-        String sql = "DELETE FROM patients WHERE student_id =?";
+        String sql = "DELETE FROM patients WHERE Student_ID =?";
         try(Connection con = DBConnection.getConnection();
                 PreparedStatement pst = con.prepareStatement(sql)){
             pst.setInt(1, id);
@@ -54,7 +54,7 @@ public void addPatient(String date, String first_name, String last_name, int age
     }
     public ResultSet getStudentData() throws SQLException{
         Connection con = DBConnection.getConnection();
-        String sql = "SELECT * FROM patient";
+        String sql = "SELECT * FROM patients";
         Statement stmt = con.createStatement();
         return stmt.executeQuery(sql);
 }  
