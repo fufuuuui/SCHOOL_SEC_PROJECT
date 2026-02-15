@@ -14,7 +14,6 @@ import javax.swing.table.TableModel;
  * @author ihub1
  */
 public class Patient_List extends javax.swing.JFrame {
-    Add_Students ns = new Add_Students();
     DBController controller = new DBController();
     int selectedStudentID = -1;
     /**
@@ -29,38 +28,41 @@ public class Patient_List extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        patient_table = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnEdit1 = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        patient_table = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(55, 68, 38));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
 
-        patient_table.setBackground(new java.awt.Color(223, 201, 209));
-        patient_table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jPanel2.setForeground(new java.awt.Color(153, 255, 255));
 
-            },
-            new String [] {
-                "Date", "Student ID", "First Name", "Last Name", "Age", "Gender", "Strand", "Complaint", "Nurse", "Treatment"
-            }
-        ));
-        patient_table.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                patient_tableMouseClicked(evt);
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
+        jLabel1.setText("Patient List");
+
+        btnEdit1.setBackground(new java.awt.Color(223, 201, 209));
+        btnEdit1.setText("Add");
+        btnEdit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEdit1ActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(patient_table);
 
         btnEdit.setBackground(new java.awt.Color(223, 201, 209));
         btnEdit.setText("Edit");
@@ -94,59 +96,140 @@ public class Patient_List extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Patient List");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(btnEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExit)
+                .addGap(285, 285, 285)
+                .addComponent(jLabel1)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEdit1)
+                    .addComponent(btnEdit)
+                    .addComponent(btnDelete)
+                    .addComponent(btnBack)
+                    .addComponent(btnExit)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(80, 37, 74));
+
+        patient_table.setBackground(new java.awt.Color(232, 176, 197));
+        patient_table.setForeground(new java.awt.Color(232, 176, 197));
+        patient_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patient ID", "Date", "Name", "Phone", "Address", "City", "Date of Birth", "Age", "Gender", "Complaint", "Nurse", "Treatment"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        patient_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                patient_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(patient_table);
+        if (patient_table.getColumnModel().getColumnCount() > 0) {
+            patient_table.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(346, 346, 346)
-                        .addComponent(jLabel1)))
-                .addContainerGap(24, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
-                .addComponent(btnEdit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDelete)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit)
-                .addGap(240, 240, 240))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel6.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 977, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 582, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -194,13 +277,38 @@ public class Patient_List extends javax.swing.JFrame {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-            if (selectedStudentID != -1) {
-           
-           refreshTable();
-    }else {
-           JOptionPane.showMessageDialog(this, "Please select a student from the table.");
-           
-       }
+        int i = patient_table.getSelectedRow();
+
+    if (i != -1) {
+
+        TableModel model = patient_table.getModel();
+
+        Add_Students editForm = new Add_Students();
+
+        int patientID = Integer.parseInt(model.getValueAt(i, 0).toString());
+        editForm.setSelectedStudentID(patientID);
+
+        editForm.setFormData(
+                model.getValueAt(i, 1).toString(),
+                model.getValueAt(i, 2).toString(),
+                model.getValueAt(i, 3).toString(),
+                model.getValueAt(i, 4).toString(),
+                model.getValueAt(i, 5).toString(),
+                model.getValueAt(i, 6).toString(),
+                model.getValueAt(i, 7).toString(),
+                model.getValueAt(i, 8).toString(),
+                model.getValueAt(i, 9).toString(),
+                model.getValueAt(i, 10).toString(),
+                model.getValueAt(i, 11).toString()
+            
+        );
+
+        editForm.setVisible(true);
+
+
+    } else {
+        JOptionPane.showMessageDialog(this, "Please select a Patient.");
+    }
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -214,47 +322,55 @@ public class Patient_List extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_formWindowClosing
 
+    private void btnEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit1ActionPerformed
+        // TODO add your handling code here:
+        Add_Students add_new = new Add_Students();
+        add_new.setVisible(true);
+        add_new.pack();
+        add_new.setLocationRelativeTo(null); 
+    }//GEN-LAST:event_btnEdit1ActionPerformed
+
     private void patient_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patient_tableMouseClicked
         // TODO add your handling code here:
         int i = patient_table.getSelectedRow();
         TableModel model = patient_table.getModel();
-        
-        selectedStudentID = Integer.parseInt(model.getValueAt(1, 1).toString());
-        //FName.setText(model.getValueAt(i, 1).toString());
-        //String gender = model.getValueAt(i, 2).toString();
-        //if(gender.equalsIgnoreCase("Male"))malegender.setSelected(true);
-        //else femalegender.setSelected(true);
-        //studentstrand.setText(model.getValueAt(1, 3).toString());
-        //.setSelectedItem(model.getValueAt(i, 4).toString());
-        
+
+        selectedStudentID = Integer.parseInt(model.getValueAt(i, 0).toString());
+
     }//GEN-LAST:event_patient_tableMouseClicked
 
+    
     public void refreshTable(){
-         DefaultTableModel model = (DefaultTableModel) patient_table.getModel();
-         model.setRowCount(0);
-         
-         try(ResultSet rs = controller.getStudentData()){
-             while (rs.next()){
-                 Object [] row = {
-                     
-                     rs.getString ("Date"),
-                     rs.getString ("student_ID"),
-                     rs.getString ("First_Name"),
-                     rs.getString ("Last_Name"),
-                     rs.getInt ("Age"),
-                     rs.getString ("Gender"),
-                     rs.getString ("Strand"),
-                     rs.getString ("Complaint"),
-                     rs.getString ("Nurse_name"),
-                     rs.getString ("Treatment")
-                
-                 };
-                 model.addRow(row);
-             }
-         } catch(SQLException e){
-             System.out.println("Table Refresh Error: "+e.getMessage());
-         }
-             
+
+    DefaultTableModel model = (DefaultTableModel) patient_table.getModel();
+    model.setRowCount(0);
+
+    try (ResultSet rs = controller.getStudentData()) {
+
+        while (rs.next()) {
+
+            Object[] row = {
+
+                rs.getInt("Patient_ID"),
+                rs.getString("Date_of_Registration"),
+                rs.getString("Patient_Name"),
+                rs.getInt("Phone_Number"),
+                rs.getString("Address"),
+                rs.getString("City"),
+                rs.getString("Date_of_Birth"),
+                rs.getInt("Age"),
+                rs.getString("Gender"),
+                rs.getString("Complaint"),
+                rs.getString("Nurse_name"),
+                rs.getString("Treatment")
+            };
+
+            model.addRow(row);
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Table Refresh Error: " + e.getMessage());
+    }             
      }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -292,9 +408,13 @@ public class Patient_List extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnEdit1;
     private javax.swing.JButton btnExit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable patient_table;
     // End of variables declaration//GEN-END:variables

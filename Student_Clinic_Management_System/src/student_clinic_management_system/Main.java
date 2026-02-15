@@ -1,5 +1,6 @@
 package student_clinic_management_system;
 
+import Sign_up.SignUp;
 import javax.swing.JOptionPane;
 
 /*
@@ -142,7 +143,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
-        Add_Students newWindow = new Add_Students();
+        Patient_List newWindow = new Patient_List();
         newWindow.setLocationRelativeTo(this);
         newWindow.setVisible(true);
         
