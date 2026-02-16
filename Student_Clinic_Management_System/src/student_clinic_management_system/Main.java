@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author ihub1
@@ -127,38 +126,38 @@ public class Main extends javax.swing.JFrame {
         SignUp newWindow = new SignUp();
         newWindow.setLocationRelativeTo(this);
         newWindow.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnPatientListActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         int choice = JOptionPane.showConfirmDialog(this,
-               "Do you really really want to close this window?",
-               "Confirm Exit", 
-               JOptionPane.YES_NO_OPTION, 
-               JOptionPane.QUESTION_MESSAGE);
-       if (choice==JOptionPane.YES_OPTION){
-           System.exit(0);
-       }
+                "Do you really really want to close this window?",
+                "Confirm Exit",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (choice == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
         Patient_List newWindow = new Patient_List();
         newWindow.setLocationRelativeTo(this);
         newWindow.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnAddStudentActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int choice = JOptionPane.showConfirmDialog(this,
-               "Do you really really want to close this window?",
-               "Confirm Exit", 
-               JOptionPane.YES_NO_OPTION, 
-               JOptionPane.QUESTION_MESSAGE);
-       if (choice==JOptionPane.YES_OPTION){
-           System.exit(0);
-       }
+                "Do you really really want to close this window?",
+                "Confirm Exit",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (choice == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_formWindowClosing
 
     /**

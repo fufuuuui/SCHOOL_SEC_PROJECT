@@ -6,22 +6,23 @@ import javax.swing.*;
 public class DBController {
 
     Connection connection = DBConnection.getConnection();
-        public void addPatient(
-                           String date,
-                           String patientName,
-                           String phoneNumber,
-                           String address,
-                           String city,
-                           String dateOfBirth,
-                           int age,
-                           String gender,
-                           String complaint,
-                           String nurseName,
-                           String treatment) {
 
-        String sql = "INSERT INTO patient " +
-                "(Date_of_Registration, Patient_Name, Phone_Number, Address, City, Date_of_Birth, Age, Gender, Complaint, Nurse_name, Treatment) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public void addPatient(
+            String date,
+            String patientName,
+            String phoneNumber,
+            String address,
+            String city,
+            String dateOfBirth,
+            int age,
+            String gender,
+            String complaint,
+            String nurseName,
+            String treatment) {
+
+        String sql = "INSERT INTO patient "
+                + "(Date_of_Registration, Patient_Name, Phone_Number, Address, City, Date_of_Birth, Age, Gender, Complaint, Nurse_name, Treatment) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pst = connection.prepareStatement(sql)) {
 
@@ -44,22 +45,23 @@ public class DBController {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }
-    public void updatePatient(int id,
-                              String date,
-                              String patientName,
-                              String phoneNumber,
-                              String address,
-                              String city,
-                              String dateOfBirth,
-                              int age,
-                              String gender,
-                              String complaint,
-                              String nurseName,
-                              String treatment) {
 
-        String sql = "UPDATE patient SET " +
-                "Date_of_Registration=?, Patient_Name=?, Phone_Number=?, Address=?, City=?, Date_of_Birth=?, Age=?, Gender=?, Complaint=?, Nurse_name=?, Treatment=? " +
-                "WHERE Patient_ID=?";
+    public void updatePatient(int id,
+            String date,
+            String patientName,
+            String phoneNumber,
+            String address,
+            String city,
+            String dateOfBirth,
+            int age,
+            String gender,
+            String complaint,
+            String nurseName,
+            String treatment) {
+
+        String sql = "UPDATE patient SET "
+                + "Date_of_Registration=?, Patient_Name=?, Phone_Number=?, Address=?, City=?, Date_of_Birth=?, Age=?, Gender=?, Complaint=?, Nurse_name=?, Treatment=? "
+                + "WHERE Patient_ID=?";
 
         try (PreparedStatement pst = connection.prepareStatement(sql)) {
 

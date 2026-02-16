@@ -12,13 +12,18 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author ihub1
  */
 public class Add_Students extends javax.swing.JFrame {
-DBController controller = new DBController();
-int selectedStudentID = -1;
-    /**
-     * Creates new form Add_Students
-     */
+
+    DBController controller = new DBController();
+    int selectedStudentID = -1;
+    private Patient_List patientList;
+
     public Add_Students() {
         initComponents();
+    }
+
+    public Add_Students(Patient_List patientList) {
+        initComponents();
+        this.patientList = patientList;
     }
 
     /**
@@ -416,93 +421,93 @@ int selectedStudentID = -1;
         Main newWindow = new Main();
         newWindow.setLocationRelativeTo(this);
         newWindow.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
 
-    String dob = day.getSelectedItem() + "/" +
-                 month.getSelectedItem() + "/" +
-                 year.getSelectedItem();
+        String dob = day.getSelectedItem() + "/"
+                + month.getSelectedItem() + "/"
+                + year.getSelectedItem();
 
-    String date = day1.getSelectedItem() + "/" +
-                     month1.getSelectedItem() + "/" +
-                     year1.getSelectedItem();
+        String date = day1.getSelectedItem() + "/"
+                + month1.getSelectedItem() + "/"
+                + year1.getSelectedItem();
 
-    String patientName = patient_Name.getText();
-    String phone = phone_Num.getText();
-    String addresss = address.getText();
-    String citys = city.getText();
-    
-    int age;
-    try {
-        age = Integer.parseInt(age_person.getText());
-    } catch (NumberFormatException e) {
-    JOptionPane.showMessageDialog(this, "Age must be a valid number!");
-    return;
-    }
+        String patientName = patient_Name.getText();
+        String phone = phone_Num.getText();
+        String addresss = address.getText();
+        String citys = city.getText();
 
-    String gender;
-    if (btnMale.isSelected()) 
-    {
-        gender = "Male";
-    } else if (btnFemale.isSelected()) 
-    {
-        gender = "Female";
-    } else 
-    {
-        gender = "Other";
-    }
+        int age;
+        try {
+            age = Integer.parseInt(age_person.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Age must be a valid number!");
+            return;
+        }
 
-    String complaint = complaints.getText();
-    String nurseName = nurse.getText();
-    String treatmentText = treatment.getText();
+        String gender;
+        if (btnMale.isSelected()) {
+            gender = "Male";
+        } else if (btnFemale.isSelected()) {
+            gender = "Female";
+        } else {
+            gender = "Other";
+        }
 
-    if (selectedStudentID == -1) {
+        String complaint = complaints.getText();
+        String nurseName = nurse.getText();
+        String treatmentText = treatment.getText();
 
-        controller.addPatient(date, patientName, phone,
-                addresss, citys, dob, age,
-                gender, complaint, nurseName, treatmentText);
+        if (selectedStudentID == -1) {
 
-    } else {
+            controller.addPatient(date, patientName, phone,
+                    addresss, citys, dob, age,
+                    gender, complaint, nurseName, treatmentText);
 
-        controller.updatePatient(selectedStudentID, date, patientName,
-                phone, addresss, citys, dob,
-                age, gender, complaint, nurseName, treatmentText);
-    }
+        } else {
+
+            controller.updatePatient(selectedStudentID, date, patientName,
+                    phone, addresss, citys, dob,
+                    age, gender, complaint, nurseName, treatmentText);
+        }
+        if (patientList != null) {
+            patientList.refreshTable();
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-         int choice = JOptionPane.showConfirmDialog(this,
-               "Do you really really want to close this window?",
-               "Confirm Exit", 
-               JOptionPane.YES_NO_OPTION, 
-               JOptionPane.QUESTION_MESSAGE);
-       if (choice==JOptionPane.YES_OPTION){
+        int choice = JOptionPane.showConfirmDialog(this,
+                "Do you really really want to close this window?",
+                "Confirm Exit",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (choice == JOptionPane.YES_OPTION) {
             this.dispose();
-       }
+        }
     }//GEN-LAST:event_formWindowClosing
 
     private void dayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_dayActionPerformed
 
     private void patient_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_IDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_patient_IDActionPerformed
-                                  
+
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         // TODO add your handling code here:
-        
+
         patient_ID.setText("");
-        
+
         day1.setSelectedIndex(0);
         month1.setSelectedIndex(0);
         year1.setSelectedIndex(0);
-        
+
         selectedStudentID = -1;
         patient_Name.setText("");
         phone_Num.setText("");
@@ -513,12 +518,12 @@ int selectedStudentID = -1;
         nurse.setText("");
         treatment.setText("");
         buttonGroup1.clearSelection();
-        
+
         day.setSelectedIndex(0);
         month.setSelectedIndex(0);
         year.setSelectedIndex(0);
         selectedStudentID = -1;
-        
+
         patient_ID.requestFocus();
 
     }//GEN-LAST:event_btnAdd1ActionPerformed
@@ -546,56 +551,56 @@ int selectedStudentID = -1;
         this.selectedStudentID = id;
         btnAdd.setText("Update");
     }
-    
+
     public void setFormData(
-                        String date,
-                        String name,
-                        String phone,
-                        String addressText,
-                        String cityText,
-                        String dob,
-                        String age,
-                        String gender,
-                        String complaint,
-                        String nurseName,
-                        String treatmentText) {
+            String date,
+            String name,
+            String phone,
+            String addressText,
+            String cityText,
+            String dob,
+            String age,
+            String gender,
+            String complaint,
+            String nurseName,
+            String treatmentText) {
 
-    // Registration date split
-    String[] regParts = date.split("/");
-    if (regParts.length == 3) {
-        day1.setSelectedItem(regParts[0]);
-        month1.setSelectedItem(regParts[1]);
-        year1.setSelectedItem(regParts[2]);
-    }
-    
-    patient_Name.setText(name);
-    phone_Num.setText(phone);
-    address.setText(addressText);
-    city.setText(cityText);
-    
-    // Date of Birht
-    String[] dobParts = dob.split("/");
-    if (dobParts.length == 3) {
-        day.setSelectedItem(dobParts[0]);
-        month.setSelectedItem(dobParts[1]);
-        year.setSelectedItem(dobParts[2]);
-    }
-    
-    age_person.setText(age);
-    complaints.setText(complaint);
-    nurse.setText(nurseName);
-    treatment.setText(treatmentText);
+        // Registration date split
+        String[] regParts = date.split("/");
+        if (regParts.length == 3) {
+            day1.setSelectedItem(regParts[0]);
+            month1.setSelectedItem(regParts[1]);
+            year1.setSelectedItem(regParts[2]);
+        }
 
-    if (gender.equalsIgnoreCase("Male")) {
-        btnMale.setSelected(true);
-    } else if (gender.equalsIgnoreCase("Female")) {
-        btnFemale.setSelected(true);
-    } else {
-        btnOther.setSelected(true);
-    }
+        patient_Name.setText(name);
+        phone_Num.setText(phone);
+        address.setText(addressText);
+        city.setText(cityText);
 
-    btnAdd.setText("Update");
-}
+        // Date of Birht
+        String[] dobParts = dob.split("/");
+        if (dobParts.length == 3) {
+            day.setSelectedItem(dobParts[0]);
+            month.setSelectedItem(dobParts[1]);
+            year.setSelectedItem(dobParts[2]);
+        }
+
+        age_person.setText(age);
+        complaints.setText(complaint);
+        nurse.setText(nurseName);
+        treatment.setText(treatmentText);
+
+        if (gender.equalsIgnoreCase("Male")) {
+            btnMale.setSelected(true);
+        } else if (gender.equalsIgnoreCase("Female")) {
+            btnFemale.setSelected(true);
+        } else {
+            btnOther.setSelected(true);
+        }
+
+        btnAdd.setText("Update");
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

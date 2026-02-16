@@ -175,6 +175,7 @@ public class Login extends javax.swing.JFrame {
             }
             if(notFound == 1 && Password.equals(passDb)){
                 Patient_List patient_list = new Patient_List();
+                patient_list.setUser(fname);
                 patient_list.setVisible(true);
                 patient_list.pack();
                 patient_list.setLocationRelativeTo(null); 
