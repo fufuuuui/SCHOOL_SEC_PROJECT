@@ -4,6 +4,7 @@
  */
 package student_clinic_management_system;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -75,6 +76,7 @@ public class Add_Students extends javax.swing.JFrame {
         day1 = new javax.swing.JComboBox<>();
         month1 = new javax.swing.JComboBox<>();
         year1 = new javax.swing.JComboBox<>();
+        btnAdd2 = new javax.swing.JButton();
 
         jRadioButton3.setText("jRadioButton3");
 
@@ -111,7 +113,7 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel5.setText("Date Of Birth");
 
         day.setBackground(new java.awt.Color(223, 201, 209));
-        day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", " ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         day.setToolTipText("");
         day.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +229,7 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel15.setText("Date of Registration");
 
         day1.setBackground(new java.awt.Color(223, 201, 209));
-        day1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        day1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", " ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         day1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 day1ActionPerformed(evt);
@@ -242,6 +244,14 @@ public class Add_Students extends javax.swing.JFrame {
         year1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 year1ActionPerformed(evt);
+            }
+        });
+
+        btnAdd2.setBackground(new java.awt.Color(223, 201, 209));
+        btnAdd2.setText("Clear");
+        btnAdd2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd2ActionPerformed(evt);
             }
         });
 
@@ -319,7 +329,8 @@ public class Add_Students extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdd)
                             .addComponent(btnAdd1)
-                            .addComponent(btnBack))))
+                            .addComponent(btnBack)
+                            .addComponent(btnAdd2))))
                 .addGap(93, 93, 93))
         );
         jPanel1Layout.setVerticalGroup(
@@ -339,7 +350,6 @@ public class Add_Students extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -388,6 +398,8 @@ public class Add_Students extends javax.swing.JFrame {
                         .addGap(9, 9, 9))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnAdd1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAdd2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
@@ -395,7 +407,7 @@ public class Add_Students extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(treatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -427,12 +439,46 @@ public class Add_Students extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-
-        String dob = day.getSelectedItem() + "/"
+        System.out.println(day.getSelectedItem());
+        String dob = null;
+        String date = null;
+        
+        if (" ".equals(day.getSelectedItem()))
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else if (" ".equals(month.getSelectedItem()))
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else if (" ".equals(year.getSelectedItem()))
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+        }else
+                dob = day.getSelectedItem() + "/"
                 + month.getSelectedItem() + "/"
                 + year.getSelectedItem();
-
-        String date = day1.getSelectedItem() + "/"
+        
+        
+        if (" ".equals(day1.getSelectedItem()))
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else if (" ".equals(month1.getSelectedItem()))
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else if (" ".equals(year1.getSelectedItem()))
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+        }else
+                date = day1.getSelectedItem() + "/"
                 + month1.getSelectedItem() + "/"
                 + year1.getSelectedItem();
 
@@ -547,6 +593,10 @@ public class Add_Students extends javax.swing.JFrame {
     private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cityActionPerformed
+
+    private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdd2ActionPerformed
     public void setSelectedStudentID(int id) {
         this.selectedStudentID = id;
         btnAdd.setText("Update");
@@ -639,6 +689,7 @@ public class Add_Students extends javax.swing.JFrame {
     private javax.swing.JTextField age_person;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdd1;
+    private javax.swing.JButton btnAdd2;
     private javax.swing.JButton btnBack;
     private javax.swing.JRadioButton btnFemale;
     private javax.swing.JRadioButton btnMale;
