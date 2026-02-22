@@ -10,7 +10,7 @@ public class DBController {
     public void addPatient(
             String date,
             String patientName,
-            String phoneNumber,
+            int phoneNumber,
             String address,
             String city,
             String dateOfBirth,
@@ -20,7 +20,7 @@ public class DBController {
             String nurseName,
             String treatment) {
 
-        String sql = "INSERT INTO patients "
+        String sql = "INSERT INTO patient "
                 + "(Date_of_Registration, Patient_Name, Phone_Number, Address, City, Date_of_Birth, Age, Gender, Complaint, Nurse_name, Treatment) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -28,7 +28,7 @@ public class DBController {
 
             pst.setString(1, date);
             pst.setString(2, patientName);
-            pst.setString(3, phoneNumber);
+            pst.setInt(3, phoneNumber);
             pst.setString(4, address);
             pst.setString(5, city);
             pst.setString(6, dateOfBirth);
@@ -49,7 +49,7 @@ public class DBController {
     public void updatePatient(int id,
             String date,
             String patientName,
-            String phoneNumber,
+            int phoneNumber,
             String address,
             String city,
             String dateOfBirth,
@@ -59,7 +59,7 @@ public class DBController {
             String nurseName,
             String treatment) {
 
-        String sql = "UPDATE patients SET "
+        String sql = "UPDATE patient SET "
                 + "Date_of_Registration=?, Patient_Name=?, Phone_Number=?, Address=?, City=?, Date_of_Birth=?, Age=?, Gender=?, Complaint=?, Nurse_name=?, Treatment=? "
                 + "WHERE Patient_ID=?";
 
@@ -67,7 +67,7 @@ public class DBController {
 
             pst.setString(1, date);
             pst.setString(2, patientName);
-            pst.setString(3, phoneNumber);
+            pst.setInt(3, phoneNumber);
             pst.setString(4, address);
             pst.setString(5, city);
             pst.setString(6, dateOfBirth);
@@ -88,7 +88,7 @@ public class DBController {
 
     public void deletePatient(int id) {
 
-        String sql = "DELETE FROM patients WHERE Patient_ID=?";
+        String sql = "DELETE FROM patient WHERE Patient_ID=?";
 
         try (PreparedStatement pst = connection.prepareStatement(sql)) {
 
@@ -103,7 +103,7 @@ public class DBController {
 
     public ResultSet getStudentData() throws SQLException {
         Connection con = DBConnection.getConnection();
-        String sql = "select * from patients";
+        String sql = "select * from patient";
         Statement stmt = con.createStatement();
         return stmt.executeQuery(sql);
     }

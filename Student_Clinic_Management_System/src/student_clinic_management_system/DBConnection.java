@@ -14,7 +14,7 @@ public class DBConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/student_clinic_management_system", "root", "Passw0rd");
+                    "jdbc:mysql://localhost:3306/clinic", "root", "Passw0rd");
             System.out.print("Connection Successful!");
             return con;
         } catch (Exception e) {
