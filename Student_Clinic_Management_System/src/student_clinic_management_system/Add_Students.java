@@ -4,6 +4,9 @@
  */
 package student_clinic_management_system;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -14,6 +17,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class Add_Students extends javax.swing.JFrame {
 
     DBController controller = new DBController();
+    Connection connection = DBConnection.getConnection();
     int selectedStudentID = -1;
     private Patient_List patientList;
 
@@ -75,7 +79,6 @@ public class Add_Students extends javax.swing.JFrame {
         day1 = new javax.swing.JComboBox<>();
         month1 = new javax.swing.JComboBox<>();
         year1 = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
 
         jRadioButton3.setText("jRadioButton3");
 
@@ -150,7 +153,8 @@ public class Add_Students extends javax.swing.JFrame {
         address.setBackground(new java.awt.Color(223, 201, 209));
 
         year.setBackground(new java.awt.Color(223, 201, 209));
-        year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2025", "2026", "2027", "2028", "2029", "2030" }));
+        year.setEditable(true);
+        year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", " ", "2025", "2026", "2027", "2028", "2029", "2030" }));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Complaint:");
@@ -239,14 +243,12 @@ public class Add_Students extends javax.swing.JFrame {
         month1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", " ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         year1.setBackground(new java.awt.Color(223, 201, 209));
-        year1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2025", "2026", "2027", "2028", "2029", "2030" }));
+        year1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", " ", "2025", "2026", "2027", "2028", "2029", "2030" }));
         year1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 year1ActionPerformed(evt);
             }
         });
-
-        jLabel16.setText("jLabel16");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -255,28 +257,23 @@ public class Add_Students extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(patient_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(day1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(month1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(year1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel16)))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel4)
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel14))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(patient_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(day1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(month1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(year1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 52, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,11 +330,9 @@ public class Add_Students extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel16))
-                .addGap(32, 32, 32)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel14)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(patient_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -378,7 +373,7 @@ public class Add_Students extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(age_person, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -389,22 +384,21 @@ public class Add_Students extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(complaints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(jLabel9)
+                            .addComponent(btnAdd1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(nurse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(9, 9, 9))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAdd1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(treatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -436,61 +430,107 @@ public class Add_Students extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-
-        String dob = day.getSelectedItem() + "/"
-                + month.getSelectedItem() + "/"
-                + year.getSelectedItem();
-
-        String date = day1.getSelectedItem() + "/"
-                + month1.getSelectedItem() + "/"
-                + year1.getSelectedItem();
-
-        String patientName = patient_Name.getText();
-        int phone = Integer.parseInt(phone_Num.getText());
-        String addresss = address.getText();
-        String citys = city.getText();
-
+        System.out.println(day.getSelectedItem());
+        String dob = null;
+        String date = null;
+        String gender = null;
         int age;
+
         try {
-            age = Integer.parseInt(age_person.getText());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Age must be a valid number!");
-            return;
-        }
 
-        String gender;
-        if (btnMale.isSelected()) {
-            gender = "Male";
-        } else if (btnFemale.isSelected()) {
-            gender = "Female";
-        } else {
-            gender = "Other";
-        }
+            if (" ".equals(day.getSelectedItem()) || " ".equals(day1.getSelectedItem())) 
+            {
+                JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (" ".equals(month.getSelectedItem()) || " ".equals(month1.getSelectedItem())) 
+            {
+                JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (" ".equals(year.getSelectedItem()) || " ".equals(year1.getSelectedItem())) 
+            {
+                JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(patient_Name.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Enter Patient Name First", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(phone_Num.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Enter Patient Phone Number", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(address.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Please Provide Patient Address", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(city.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Please Provide Patient City", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(complaints.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Please state your Complaint", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(nurse.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "Enter a Nurse that are available", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if ("".equals(treatment.getText())) {
+                JOptionPane.showMessageDialog(new JFrame(), "What treatment can be use", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }else {
+                dob = day.getSelectedItem() + "/"
+                        + month.getSelectedItem() + "/"
+                        + year.getSelectedItem();
+                date = day1.getSelectedItem() + "/"
+                        + month1.getSelectedItem() + "/"
+                        + year1.getSelectedItem();
 
-        String complaint = complaints.getText();
-        String nurseName = nurse.getText();
-        String treatmentText = treatment.getText();
+                String patientName = patient_Name.getText();
+                String phone = phone_Num.getText();
+                String addresss = address.getText();
+                String citys = city.getText();
+                String complaint = complaints.getText();
+                String nurseName = nurse.getText();
+                String treatmentText = treatment.getText();
 
-        if (selectedStudentID == -1) {
+                try {
+                    age = Integer.parseInt(age_person.getText());
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "Age must be a valid number!");
+                    return;
+                }
 
-            controller.addPatient(date, patientName, phone,
-                    addresss, citys, dob, age,
-                    gender, complaint, nurseName, treatmentText);
+                if (btnMale.isSelected()) {
+                    gender = "Male";
+                } else if (btnFemale.isSelected()) {
+                    gender = "Female";
+                } else {
+                    gender = "Other";
+                }
 
-        } else {
+                
 
-            controller.updatePatient(selectedStudentID, date, patientName,
-                    phone, addresss, citys, dob,
-                    age, gender, complaint, nurseName, treatmentText);
-        }
-        if (patientList != null) {
-            patientList.refreshTable();
+                if (selectedStudentID
+                        == -1) {
+
+                    controller.addPatient(date, patientName, phone,
+                            addresss, citys, dob, age,
+                            gender, complaint, nurseName, treatmentText);
+
+                } else {
+
+                    controller.updatePatient(selectedStudentID, date, patientName,
+                            phone, addresss, citys, dob,
+                            age, gender, complaint, nurseName, treatmentText);
+                }
+                if (patientList
+                        != null) {
+                    patientList.refreshTable();
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error!" + e.getMessage());
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int choice = JOptionPane.showConfirmDialog(this,
-                "Do you really really want to close this window?",
+                "Are you sure you want to close this window?",
                 "Confirm Exit",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
@@ -503,10 +543,6 @@ public class Add_Students extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_dayActionPerformed
-
-    private void patient_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_patient_IDActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         // TODO add your handling code here:
@@ -556,9 +592,20 @@ public class Add_Students extends javax.swing.JFrame {
     private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cityActionPerformed
-    public void setSelectedStudentID(int id) {
+
+    private void patient_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_patient_IDActionPerformed
+    public void setSelectedStudentID(int id) 
+    {
         this.selectedStudentID = id;
         btnAdd.setText("Update");
+    }
+    public void setID(int id)
+    {
+        this.selectedStudentID = id;
+        String was = Integer.toString(id);
+        jLabel2.setText(was);
     }
 
     public void setFormData(
@@ -665,7 +712,6 @@ public class Add_Students extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
