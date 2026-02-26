@@ -70,7 +70,7 @@ public class Patient_List extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Patient ID", "Date", "Name", "Phone", "Address", "City", "Date of Birth", "Age", "Gender", "Complaint", "Nurse", "Treatment"
+                "Patient ID", "Date", "Name", "Phone No.", "Address", "City", "Date of Birth", "Age", "Gender", "Complaint", "Nurse", "Treatment"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -466,6 +466,7 @@ public class Patient_List extends javax.swing.JFrame {
             editForm.setSelectedStudentID(patientID);
 
             editForm.setFormData(
+                    model.getValueAt(i, 0).toString(),
                     model.getValueAt(i, 1).toString(),
                     model.getValueAt(i, 2).toString(),
                     model.getValueAt(i, 3).toString(),
