@@ -33,7 +33,10 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
+                  <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -289,7 +292,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="btnAdd1" min="-2" pref="97" max="-2" attributes="0"/>
+                          <Component id="View" min="-2" pref="97" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnAdd" min="-2" pref="91" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -335,7 +338,7 @@
                                       <Component id="jLabel2" pref="52" max="32767" attributes="0"/>
                                       <Component id="btnBack" alignment="1" max="32767" attributes="0"/>
                                       <Component id="btnEdit" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="btnAdd1" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="View" alignment="1" max="32767" attributes="0"/>
                                       <Component id="btnAdd" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -509,7 +512,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnAdd1">
+                <Component class="javax.swing.JButton" name="View">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="d1" green="c9" red="df" type="rgb"/>
@@ -525,7 +528,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -544,7 +547,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1135" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1086" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

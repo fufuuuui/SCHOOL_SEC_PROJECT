@@ -47,7 +47,7 @@ public class Patient_List extends javax.swing.JFrame {
         user_acc = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnAdd1 = new javax.swing.JButton();
+        View = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -195,13 +195,13 @@ public class Patient_List extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/vecteezy_round-medical-cross-symbol-on-transparent-background_17177954 (1) (3).png"))); // NOI18N
 
-        btnAdd1.setBackground(new java.awt.Color(223, 201, 209));
-        btnAdd1.setForeground(new java.awt.Color(0, 0, 0));
-        btnAdd1.setText("View");
-        btnAdd1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+        View.setBackground(new java.awt.Color(223, 201, 209));
+        View.setForeground(new java.awt.Color(0, 0, 0));
+        View.setText("View");
+        View.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        View.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd1ActionPerformed(evt);
+                ViewActionPerformed(evt);
             }
         });
 
@@ -221,7 +221,7 @@ public class Patient_List extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(24, 24, 24)
-                .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(View, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -260,7 +260,7 @@ public class Patient_List extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                             .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAdd1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(View, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -308,7 +308,7 @@ public class Patient_List extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1135, Short.MAX_VALUE)
+            .addGap(0, 1086, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,7 +324,9 @@ public class Patient_List extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 49, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,13 +452,39 @@ public class Patient_List extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logoutActionPerformed
 
-    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+    private void ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewActionPerformed
         // TODO add your handling code here:
-        Info Info = new Info();
-        Info.setVisible(true);
-        Info.pack();
-        Info.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnAdd1ActionPerformed
+        int i = patient_table.getSelectedRow();
+
+        if (i != -1) {
+
+            TableModel model = patient_table.getModel();
+
+            Info editForm = new Info();
+
+            int patientID = Integer.parseInt(model.getValueAt(i, 0).toString());
+            editForm.setSelectedStudentID(patientID);
+
+            editForm.setFormData(
+                    model.getValueAt(i, 1).toString(),
+                    model.getValueAt(i, 2).toString(),
+                    model.getValueAt(i, 3).toString(),
+                    model.getValueAt(i, 4).toString(),
+                    model.getValueAt(i, 5).toString(),
+                    model.getValueAt(i, 6).toString(),
+                    model.getValueAt(i, 7).toString(),
+                    model.getValueAt(i, 8).toString(),
+                    model.getValueAt(i, 9).toString(),
+                    model.getValueAt(i, 10).toString(),
+                    model.getValueAt(i, 11).toString()
+            );
+
+            editForm.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a Patient.");
+        }
+    }//GEN-LAST:event_ViewActionPerformed
 
     public void setUser(String name) {
         user_acc.setText(name);
@@ -527,8 +555,8 @@ public class Patient_List extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton View;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
