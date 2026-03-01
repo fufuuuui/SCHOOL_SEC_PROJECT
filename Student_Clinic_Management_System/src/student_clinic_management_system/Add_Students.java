@@ -4,6 +4,8 @@
  */
 package student_clinic_management_system;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JFrame;
@@ -28,6 +30,7 @@ public class Add_Students extends javax.swing.JFrame {
     public Add_Students(Patient_List patientList) {
         initComponents();
         this.patientList = patientList;
+
     }
 
     /**
@@ -95,6 +98,7 @@ public class Add_Students extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setAlwaysOnTop(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -347,7 +351,7 @@ public class Add_Students extends javax.swing.JFrame {
                                     .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(phone_Num, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +436,7 @@ public class Add_Students extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,11 +452,7 @@ public class Add_Students extends javax.swing.JFrame {
     }//GEN-LAST:event_age_personActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        Main newWindow = new Main();
-        newWindow.setLocationRelativeTo(this);
-        newWindow.setVisible(true);
 
-        this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -465,16 +465,13 @@ public class Add_Students extends javax.swing.JFrame {
 
         try {
 
-            if (" ".equals(day.getSelectedItem()) || " ".equals(day1.getSelectedItem())) 
-            {
+            if (" ".equals(day.getSelectedItem()) || " ".equals(day1.getSelectedItem())) {
                 JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
                         JOptionPane.ERROR_MESSAGE);
-            } else if (" ".equals(month.getSelectedItem()) || " ".equals(month1.getSelectedItem())) 
-            {
+            } else if (" ".equals(month.getSelectedItem()) || " ".equals(month1.getSelectedItem())) {
                 JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
                         JOptionPane.ERROR_MESSAGE);
-            } else if (" ".equals(year.getSelectedItem()) || " ".equals(year1.getSelectedItem())) 
-            {
+            } else if (" ".equals(year.getSelectedItem()) || " ".equals(year1.getSelectedItem())) {
                 JOptionPane.showMessageDialog(new JFrame(), "Must complete all fields", "Error",
                         JOptionPane.ERROR_MESSAGE);
             } else if ("".equals(patient_Name.getText())) {
@@ -498,7 +495,7 @@ public class Add_Students extends javax.swing.JFrame {
             } else if ("".equals(treatment.getText())) {
                 JOptionPane.showMessageDialog(new JFrame(), "What treatment can be use", "Error",
                         JOptionPane.ERROR_MESSAGE);
-            }else {
+            } else {
                 dob = day.getSelectedItem() + "/"
                         + month.getSelectedItem() + "/"
                         + year.getSelectedItem();
@@ -528,8 +525,6 @@ public class Add_Students extends javax.swing.JFrame {
                 } else {
                     gender = "Other";
                 }
-
-                
 
                 if (selectedStudentID
                         == -1) {
@@ -623,13 +618,12 @@ public class Add_Students extends javax.swing.JFrame {
     private void patient_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patient_IDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_patient_IDActionPerformed
-    public void setSelectedStudentID(int id) 
-    {
+    public void setSelectedStudentID(int id) {
         this.selectedStudentID = id;
         btnAdd.setText("Update");
     }
-    public void setID(int id)
-    {
+
+    public void setID(int id) {
         this.selectedStudentID = id;
         String was = Integer.toString(id);
         jLabel2.setText(was);
