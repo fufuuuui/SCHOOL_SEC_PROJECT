@@ -156,7 +156,7 @@ public class Patient_List extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(252, 212, 240));
@@ -284,7 +284,7 @@ public class Patient_List extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(View, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,9 +359,9 @@ public class Patient_List extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1297, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1297, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -370,7 +370,7 @@ public class Patient_List extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -391,7 +391,7 @@ public class Patient_List extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void patient_taboe_font()    {
+    public void patient_taboe_font() {
         Font pixelFont = loadCustomFont(15);
         patient_table.setFont(pixelFont);
     }
@@ -465,23 +465,26 @@ public class Patient_List extends javax.swing.JFrame {
             TableModel model = patient_table.getModel();
 
             Info editForm = new Info();
+            editForm.setVisible(true);
+            editForm.pack();
+            editForm.setLocation(0, 230);
 
             int patientID = Integer.parseInt(model.getValueAt(i, 0).toString());
             editForm.setSelectedStudentID(patientID);
 
             editForm.setFormData(
-                model.getValueAt(i, 0).toString(),
-                model.getValueAt(i, 1).toString(),
-                model.getValueAt(i, 2).toString(),
-                model.getValueAt(i, 3).toString(),
-                model.getValueAt(i, 4).toString(),
-                model.getValueAt(i, 5).toString(),
-                model.getValueAt(i, 6).toString(),
-                model.getValueAt(i, 7).toString(),
-                model.getValueAt(i, 8).toString(),
-                model.getValueAt(i, 9).toString(),
-                model.getValueAt(i, 10).toString(),
-                model.getValueAt(i, 11).toString()
+                    model.getValueAt(i, 0).toString(),
+                    model.getValueAt(i, 1).toString(),
+                    model.getValueAt(i, 2).toString(),
+                    model.getValueAt(i, 3).toString(),
+                    model.getValueAt(i, 4).toString(),
+                    model.getValueAt(i, 5).toString(),
+                    model.getValueAt(i, 6).toString(),
+                    model.getValueAt(i, 7).toString(),
+                    model.getValueAt(i, 8).toString(),
+                    model.getValueAt(i, 9).toString(),
+                    model.getValueAt(i, 10).toString(),
+                    model.getValueAt(i, 11).toString()
             );
 
             editForm.setVisible(true);
@@ -502,10 +505,10 @@ public class Patient_List extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         int choice = JOptionPane.showConfirmDialog(this,
-            "Are you sure you want to close this window?",
-            "Confirm Exit",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE);
+                "Are you sure you want to close this window?",
+                "Confirm Exit",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
         if (choice == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
@@ -515,8 +518,8 @@ public class Patient_List extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (selectedStudentID != -1) {
             int confirm = JOptionPane.showConfirmDialog(this,
-                "Are you sure you want to delete this patient?",
-                "Confirm Delete", JOptionPane.YES_NO_OPTION);
+                    "Are you sure you want to delete this patient?",
+                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
 
             if (confirm == JOptionPane.YES_OPTION) {
                 controller.deletePatient(selectedStudentID);
@@ -544,17 +547,17 @@ public class Patient_List extends javax.swing.JFrame {
             editForm.setSelectedStudentID(patientID);
 
             editForm.setFormData(
-                model.getValueAt(i, 1).toString(),
-                model.getValueAt(i, 2).toString(),
-                model.getValueAt(i, 3).toString(),
-                model.getValueAt(i, 4).toString(),
-                model.getValueAt(i, 5).toString(),
-                model.getValueAt(i, 6).toString(),
-                model.getValueAt(i, 7).toString(),
-                model.getValueAt(i, 8).toString(),
-                model.getValueAt(i, 9).toString(),
-                model.getValueAt(i, 10).toString(),
-                model.getValueAt(i, 11).toString()
+                    model.getValueAt(i, 1).toString(),
+                    model.getValueAt(i, 2).toString(),
+                    model.getValueAt(i, 3).toString(),
+                    model.getValueAt(i, 4).toString(),
+                    model.getValueAt(i, 5).toString(),
+                    model.getValueAt(i, 6).toString(),
+                    model.getValueAt(i, 7).toString(),
+                    model.getValueAt(i, 8).toString(),
+                    model.getValueAt(i, 9).toString(),
+                    model.getValueAt(i, 10).toString(),
+                    model.getValueAt(i, 11).toString()
             );
 
             editForm.setVisible(true);
