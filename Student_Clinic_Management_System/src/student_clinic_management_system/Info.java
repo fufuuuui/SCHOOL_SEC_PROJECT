@@ -512,7 +512,7 @@ public class Info extends javax.swing.JFrame {
                 .addComponent(Name10))
         );
 
-        jPanel3.setBackground(new java.awt.Color(249, 228, 243));
+        jPanel3.setBackground(new java.awt.Color(230, 210, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 40, 179), 3));
 
         jPanel4.setBackground(new java.awt.Color(40, 40, 179));
@@ -531,7 +531,7 @@ public class Info extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Patient details.txt");
 
-        jPanel23.setBackground(new java.awt.Color(249, 228, 243));
+        jPanel23.setBackground(new java.awt.Color(230, 210, 255));
         jPanel23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Date_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

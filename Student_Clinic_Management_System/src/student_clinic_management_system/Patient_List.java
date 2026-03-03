@@ -110,14 +110,14 @@ public class Patient_List extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(249, 239, 246));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 40, 179), 2));
 
         jPanel3.setBackground(new java.awt.Color(40, 40, 179));
         jPanel3.setPreferredSize(new java.awt.Dimension(460, 480));
 
         patient_table.setAutoCreateRowSorter(true);
-        patient_table.setBackground(new java.awt.Color(230, 210, 255));
+        patient_table.setBackground(new java.awt.Color(249, 228, 243));
         patient_table.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(40, 40, 179), 1, true));
         patient_table.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         patient_table.setForeground(new java.awt.Color(40, 40, 179));
@@ -159,7 +159,7 @@ public class Patient_List extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(252, 212, 240));
+        jPanel2.setBackground(new java.awt.Color(232, 219, 248));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 40, 179), 3));
         jPanel2.setForeground(new java.awt.Color(153, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1196, 100));
