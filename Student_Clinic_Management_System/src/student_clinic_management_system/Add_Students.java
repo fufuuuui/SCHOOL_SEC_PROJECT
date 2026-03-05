@@ -627,7 +627,7 @@ public class Add_Students extends javax.swing.JFrame {
                 }
                 if (patientList
                         != null) {
-                    patientList.refreshTable();
+                    patientList.refreshTable("");
                 }
             }
 

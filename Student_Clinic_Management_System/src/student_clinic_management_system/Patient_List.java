@@ -41,7 +41,7 @@ public class Patient_List extends javax.swing.JFrame {
      */
     public Patient_List() {
         initComponents();
-        refreshTable();
+        refreshTable("");
         patient_taboe_font();
 
         Start.setFont(pixelFont);
@@ -54,6 +54,7 @@ public class Patient_List extends javax.swing.JFrame {
         addClickEffect(btnEdit);
         addClickEffect(btnDelete);
         addClickEffect(View);
+        addClickEffect(logout);
 
     }
 
@@ -164,7 +165,7 @@ public class Patient_List extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(153, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1196, 100));
 
-        btnAdd.setBackground(new java.awt.Color(252, 212, 240));
+        btnAdd.setBackground(new java.awt.Color(232, 219, 248));
         btnAdd.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(40, 0, 120));
         btnAdd.setText("Add");
@@ -172,13 +173,14 @@ public class Patient_List extends javax.swing.JFrame {
         btnAdd.setContentAreaFilled(false);
         btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd.setFocusPainted(false);
+        btnAdd.setOpaque(true);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
-        btnEdit.setBackground(new java.awt.Color(252, 212, 240));
+        btnEdit.setBackground(new java.awt.Color(232, 219, 248));
         btnEdit.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(40, 0, 120));
         btnEdit.setText("Edit");
@@ -186,13 +188,14 @@ public class Patient_List extends javax.swing.JFrame {
         btnEdit.setContentAreaFilled(false);
         btnEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEdit.setFocusPainted(false);
+        btnEdit.setOpaque(true);
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(252, 212, 240));
+        btnDelete.setBackground(new java.awt.Color(232, 219, 248));
         btnDelete.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(40, 0, 120));
         btnDelete.setText("Delete");
@@ -200,6 +203,7 @@ public class Patient_List extends javax.swing.JFrame {
         btnDelete.setContentAreaFilled(false);
         btnDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDelete.setFocusPainted(false);
+        btnDelete.setOpaque(true);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -237,11 +241,13 @@ public class Patient_List extends javax.swing.JFrame {
         user_acc.setForeground(new java.awt.Color(40, 40, 179));
         user_acc.setText("Account");
 
-        logout.setBackground(new java.awt.Color(221, 160, 183));
+        logout.setBackground(new java.awt.Color(232, 219, 248));
         logout.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         logout.setText("Log out?");
         logout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         logout.setContentAreaFilled(false);
+        logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logout.setOpaque(true);
         logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutActionPerformed(evt);
@@ -250,7 +256,7 @@ public class Patient_List extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/vecteezy_round-medical-cross-symbol-on-transparent-background_17177954 (1) (3).png"))); // NOI18N
 
-        View.setBackground(new java.awt.Color(252, 212, 240));
+        View.setBackground(new java.awt.Color(232, 219, 248));
         View.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         View.setForeground(new java.awt.Color(40, 0, 120));
         View.setText("View");
@@ -398,7 +404,7 @@ public class Patient_List extends javax.swing.JFrame {
 
     private void addClickEffect(javax.swing.JButton button) {
 
-        java.awt.Color normal = new java.awt.Color(252, 212, 240);
+        java.awt.Color normal = new java.awt.Color(232, 219, 248);
         java.awt.Color hover = normal.brighter();
         java.awt.Color pressed = normal.darker();
 
@@ -524,7 +530,7 @@ public class Patient_List extends javax.swing.JFrame {
             if (confirm == JOptionPane.YES_OPTION) {
                 controller.deletePatient(selectedStudentID);
 
-                refreshTable();
+                refreshTable("");
                 selectedStudentID = -1;
 
             }
@@ -587,7 +593,7 @@ public class Patient_List extends javax.swing.JFrame {
         user_acc.setText(name);
     }
 
-    public void refreshTable() {
+    public void refreshTable(String string) {
 
         DefaultTableModel model = (DefaultTableModel) patient_table.getModel();
         model.setRowCount(0);
