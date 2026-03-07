@@ -452,8 +452,24 @@ public class Patient_List extends javax.swing.JFrame {
 
         if (jPopupMenu.getComponentCount() == 0) {
             jPopupMenu.add(jMenuItem);
+
             jPopupMenu.add(jMenuItem1);
+            jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    Credits credits = new Credits();
+                    credits.setVisible(true);
+                    credits.setLocationRelativeTo(null);
+                }
+            });
+
             jPopupMenu.add(jMenuItem2);
+            jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    System_Settings settings = new System_Settings();
+                    settings.setVisible(true);
+                    settings.setLocationRelativeTo(null);
+                }
+            });
         }
         jPopupMenu.pack();
 
@@ -461,6 +477,7 @@ public class Patient_List extends javax.swing.JFrame {
         int y = -jPopupMenu.getPreferredSize().height;
         jPopupMenu.show(Start, x, y);
     }//GEN-LAST:event_StartActionPerformed
+
 
     private void ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewActionPerformed
         // TODO add your handling code here:

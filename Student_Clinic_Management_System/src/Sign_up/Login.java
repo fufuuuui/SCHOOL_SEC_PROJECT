@@ -85,7 +85,6 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Don't have Account?");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -102,7 +101,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 40, 179), 3));
 
         LoginBtn.setBackground(new java.awt.Color(223, 201, 209));
-        LoginBtn.setForeground(new java.awt.Color(0, 0, 0));
+        LoginBtn.setForeground(new java.awt.Color(40, 40, 179));
         LoginBtn.setText("Log In");
         LoginBtn.addActionListener(this::LoginBtnActionPerformed);
 
@@ -139,7 +138,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Password");
 
         LoginBtn1.setBackground(new java.awt.Color(223, 201, 209));
-        LoginBtn1.setForeground(new java.awt.Color(0, 0, 0));
+        LoginBtn1.setForeground(new java.awt.Color(40, 40, 179));
         LoginBtn1.setText("Sign up");
         LoginBtn1.addActionListener(this::LoginBtn1ActionPerformed);
 

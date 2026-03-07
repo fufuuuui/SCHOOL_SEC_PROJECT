@@ -142,17 +142,14 @@ public class Info extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(249, 228, 243));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 40, 179), 3));
 
-        Name10.setForeground(new java.awt.Color(0, 0, 0));
         Name10.setText("....");
 
         jPanel12.setBackground(new java.awt.Color(249, 228, 243));
         jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Name_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Name_lab.setForeground(new java.awt.Color(0, 0, 0));
         Name_lab.setText("Patient name");
 
-        Name.setForeground(new java.awt.Color(0, 0, 0));
         Name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Name.setText("....");
 
@@ -177,10 +174,8 @@ public class Info extends javax.swing.JFrame {
         jPanel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Id_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Id_lab.setForeground(new java.awt.Color(0, 0, 0));
         Id_lab.setText("Patient ID");
 
-        ID.setForeground(new java.awt.Color(0, 0, 0));
         ID.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ID.setText("....");
 
@@ -205,10 +200,8 @@ public class Info extends javax.swing.JFrame {
         jPanel14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Age_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Age_lab.setForeground(new java.awt.Color(0, 0, 0));
         Age_lab.setText("Age");
 
-        Age.setForeground(new java.awt.Color(0, 0, 0));
         Age.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Age.setText("....");
 
@@ -233,10 +226,8 @@ public class Info extends javax.swing.JFrame {
         jPanel15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         phone_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        phone_lab.setForeground(new java.awt.Color(0, 0, 0));
         phone_lab.setText("Phone Number");
 
-        Phone_number.setForeground(new java.awt.Color(0, 0, 0));
         Phone_number.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Phone_number.setText("....");
 
@@ -261,10 +252,8 @@ public class Info extends javax.swing.JFrame {
         jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Address_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Address_lab.setForeground(new java.awt.Color(0, 0, 0));
         Address_lab.setText("Address");
 
-        Address.setForeground(new java.awt.Color(0, 0, 0));
         Address.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Address.setText("....");
 
@@ -288,10 +277,8 @@ public class Info extends javax.swing.JFrame {
         jPanel17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         City_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        City_lab.setForeground(new java.awt.Color(0, 0, 0));
         City_lab.setText("City");
 
-        city.setForeground(new java.awt.Color(0, 0, 0));
         city.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         city.setText("....");
 
@@ -317,10 +304,8 @@ public class Info extends javax.swing.JFrame {
         jPanel18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Dob_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Dob_lab.setForeground(new java.awt.Color(0, 0, 0));
         Dob_lab.setText("Date of Birth");
 
-        DoB.setForeground(new java.awt.Color(0, 0, 0));
         DoB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DoB.setText("....");
 
@@ -345,10 +330,8 @@ public class Info extends javax.swing.JFrame {
         jPanel19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Gender_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Gender_lab.setForeground(new java.awt.Color(0, 0, 0));
         Gender_lab.setText("Gender");
 
-        Gender.setForeground(new java.awt.Color(0, 0, 0));
         Gender.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Gender.setText("....");
 
@@ -373,10 +356,8 @@ public class Info extends javax.swing.JFrame {
         jPanel20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Complaint_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Complaint_lab.setForeground(new java.awt.Color(0, 0, 0));
         Complaint_lab.setText("Complaint");
 
-        Complaint.setForeground(new java.awt.Color(0, 0, 0));
         Complaint.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Complaint.setText("....");
 
@@ -401,10 +382,8 @@ public class Info extends javax.swing.JFrame {
         jPanel21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Nurse_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Nurse_lab.setForeground(new java.awt.Color(0, 0, 0));
         Nurse_lab.setText("Nurse");
 
-        Nurse.setForeground(new java.awt.Color(0, 0, 0));
         Nurse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Nurse.setText("....");
 
@@ -430,10 +409,8 @@ public class Info extends javax.swing.JFrame {
         jPanel22.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         treatment_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        treatment_lab.setForeground(new java.awt.Color(0, 0, 0));
         treatment_lab.setText("Treatment");
 
-        Treatment.setForeground(new java.awt.Color(0, 0, 0));
         Treatment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Treatment.setText("....");
 
@@ -528,17 +505,14 @@ public class Info extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Patient details.txt");
 
         jPanel23.setBackground(new java.awt.Color(230, 210, 255));
         jPanel23.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(249, 228, 243), new java.awt.Color(249, 228, 243), java.awt.Color.black, java.awt.Color.black));
 
         Date_lab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Date_lab.setForeground(new java.awt.Color(0, 0, 0));
         Date_lab.setText("Date");
 
-        Date.setForeground(new java.awt.Color(0, 0, 0));
         Date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Date.setText("....");
 
