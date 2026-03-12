@@ -74,7 +74,6 @@ public class Patient_List extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         user_acc = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
@@ -210,19 +209,6 @@ public class Patient_List extends javax.swing.JFrame {
             }
         });
 
-        btnExit.setBackground(new java.awt.Color(250, 187, 211));
-        btnExit.setForeground(new java.awt.Color(250, 187, 211));
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Sprite-0001.png"))); // NOI18N
-        btnExit.setBorder(null);
-        btnExit.setBorderPainted(false);
-        btnExit.setContentAreaFilled(false);
-        btnExit.setVerifyInputWhenFocusTarget(false);
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-
         jPanel4.setBackground(new java.awt.Color(40, 40, 179));
         jPanel4.setToolTipText("");
 
@@ -290,7 +276,7 @@ public class Patient_List extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(View, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,8 +284,6 @@ public class Patient_List extends javax.swing.JFrame {
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -309,7 +293,6 @@ public class Patient_List extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(View, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -452,6 +435,11 @@ public class Patient_List extends javax.swing.JFrame {
 
         if (jPopupMenu.getComponentCount() == 0) {
             jPopupMenu.add(jMenuItem);
+            jMenuItem.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    System.exit(0);
+                }
+            });
 
             jPopupMenu.add(jMenuItem1);
             jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -525,17 +513,6 @@ public class Patient_List extends javax.swing.JFrame {
         Login.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_logoutActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        int choice = JOptionPane.showConfirmDialog(this,
-                "Are you sure you want to close this window?",
-                "Confirm Exit",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE);
-        if (choice == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
@@ -680,7 +657,6 @@ public class Patient_List extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnExit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem;
