@@ -35,10 +35,14 @@ public class Credits extends javax.swing.JFrame {
         initComponents();
         font_1();
         font_2();
+        this.pack();
+        this.setLocationRelativeTo(null); // Re-centers if needed
     }
     public void font_1()
     {
         jLabel1.setFont(pixelFont);
+        this.getContentPane().revalidate();
+        this.getContentPane().repaint();
     }
     public void font_2()
     {
@@ -52,6 +56,8 @@ public class Credits extends javax.swing.JFrame {
         jLabel8.setFont(pixelFont);
         jLabel9.setFont(pixelFont);
         jLabel10.setFont(pixelFont);
+        this.getContentPane().revalidate();
+        this.getContentPane().repaint();
     }
 
     /**
@@ -78,8 +84,13 @@ public class Credits extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(143, 251, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 40, 179), 3));
@@ -197,7 +208,7 @@ public class Credits extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,13 +250,16 @@ public class Credits extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

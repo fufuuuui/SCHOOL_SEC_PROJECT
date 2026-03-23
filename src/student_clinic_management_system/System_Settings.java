@@ -41,6 +41,7 @@ public class System_Settings extends javax.swing.JFrame {
         Font pixelFont = loadCustomFont(15);
         jLabel2.setFont(pixelFont);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,8 +59,13 @@ public class System_Settings extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(143, 251, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 40, 179), 3));
@@ -168,6 +174,11 @@ public class System_Settings extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
