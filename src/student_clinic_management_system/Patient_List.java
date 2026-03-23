@@ -561,6 +561,9 @@ public class Patient_List extends javax.swing.JFrame {
             );
 
             editForm.setVisible(true);
+            editForm.pack();
+            editForm.setLocation(820, 220);
+            
 
         } else {
             JOptionPane.showMessageDialog(this, "Please select a Patient.");
@@ -571,7 +574,7 @@ public class Patient_List extends javax.swing.JFrame {
         // TODO add your handling code here:
         Add_Students add_new = new Add_Students(this);
         add_new.pack();
-        add_new.setLocation(970, 220);
+        add_new.setLocation(820, 220);
         add_new.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
